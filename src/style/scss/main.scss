@@ -1,0 +1,52 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+a,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+// .box {
+//   margin: 1rem;
+//   width: 100%;
+//   border-radius: 10px;
+//   border: 1px solid #ccc;
+// }
+
+#navbar {
+  background: url('../images/mapleleaves.jpg') no-repeat center center/cover;
+  height: 200px;
+}
+
+#home {
+  // background: url('../images/leaves.jpg') no-repeat center
+  //   center/cover;
+  // opacity: 0.1;
+
+  .box-item {
+    width: 300px;
+  }
+
+  .form-item {
+    width: 300px;
+    margin: 20px;
+  }
+
+  .icon {
+    margin-top: 30px;
+  }
+}
