@@ -20,31 +20,74 @@ a:active {
   color: inherit;
 }
 
-// .box {
-//   margin: 1rem;
-//   width: 100%;
-//   border-radius: 10px;
-//   border: 1px solid #ccc;
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../images/mapleleaves.jpg') no-repeat center center/cover;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+// body::after {
+//   content: '';
+//   background: black;
+//   opacity: 0.6;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+//   background-attachment: fixed;
+//   z-index: -1;
 // }
 
 #navbar {
-  background: url('../images/mapleleaves.jpg') no-repeat center center/cover;
-  height: 200px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  position: relative;
+  .title {
+    font-size: 3rem;
+    text-align: center;
+    line-height: 90px;
+    color: White;
+  }
 }
 
 #home {
-  // background: url('../images/leaves.jpg') no-repeat center
-  //   center/cover;
+  padding: 30px;
+  .container {
+    background: white no-repeat center center/cover;
+    border-radius: 10px;
+  }
+  color: black;
   // opacity: 0.1;
 
-  .box-item {
-    width: 300px;
+  // .section {
+  //   border: 1px solid #ccc;
+  //   text-align: center;
+
+  //   .date-picker {
+  //     width: 200px;
+  //     height: 100px;
+  //   }
+  // }
+
+  .section {
+    // background: rgba(83, 109, 254, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .date-picker {
+      width: 200px;
+      height: 100px;
+    }
   }
 
-  .form-item {
-    width: 300px;
-    margin: 20px;
-  }
+  // .form-item {
+  //   width: 300px;
+  //   margin: 20px;
+
+  // }
 
   .icon {
     margin-top: 30px;

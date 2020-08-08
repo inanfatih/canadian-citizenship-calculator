@@ -11,7 +11,7 @@
   height: 3rem;
   width: 100%;
   text-align: center;
-  background: #a0138e;
+  background: #e91e63;
   color: white;
   border: none;
   border-radius: 5px;
@@ -35,16 +35,34 @@ a:active {
   text-decoration: none;
   color: inherit; }
 
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/mapleleaves.jpg") no-repeat center center/cover;
+  height: 100vh;
+  background-attachment: fixed; }
+
 #navbar {
-  background: url("../images/mapleleaves.jpg") no-repeat center center/cover;
-  height: 200px; }
+  height: 100px;
+  margin: auto;
+  display: block;
+  position: relative; }
+  #navbar .title {
+    font-size: 3rem;
+    text-align: center;
+    line-height: 90px;
+    color: White; }
 
-#home .box-item {
-  width: 300px; }
-
-#home .form-item {
-  width: 300px;
-  margin: 20px; }
-
-#home .icon {
-  margin-top: 30px; }
+#home {
+  padding: 30px;
+  color: black; }
+  #home .container {
+    background: white no-repeat center center/cover;
+    border-radius: 10px; }
+  #home .section {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    #home .section .date-picker {
+      width: 200px;
+      height: 100px; }
+  #home .icon {
+    margin-top: 30px; }
