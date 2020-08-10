@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div id='navbar'>
       <div className='container'>
-        <p className='title'>Canadian Citizenship Calculator</p>
+        <p className='title'>Kanada Vatandaşlık Süresi Hesaplama</p>
       </div>
     </div>
   );

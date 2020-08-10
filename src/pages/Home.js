@@ -13,6 +13,7 @@ import FormControl from '@material-ui/core/FormControl';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import difference from '../util/difference';
 
 function Home() {
@@ -104,36 +105,32 @@ function Home() {
     event.preventDefault();
 
     if (isRefugeeClaimed && entryDate > refugeeClaimDate) {
-      window.alert(
-        "Kanada'ya giris tarihi Refugee Claim tarihinden sonra olamaz",
-      );
+      window.alert("Kanada'ya giriş tarihi iltica tarihinden sonra olamaz");
     } else if (isRefugeeClaimed && entryDate > protectedPersonDate) {
       window.alert(
-        "Kanada'ya giris tarihi mahkemeyi gecme tarihinden sonra olamaz",
+        "Kanada'ya giriş tarihi mahkemeyi geçme tarihinden sonra olamaz",
       );
     } else if (isRefugeeClaimed && refugeeClaimDate > protectedPersonDate) {
-      window.alert(
-        'Refugee claim tarihi mahkemeyi gecme tarihinden sonra olamaz',
-      );
+      window.alert('İltica tarihi mahkemeyi geçme tarihinden sonra olamaz');
     } else if (isRefugeeClaimed && protectedPersonDate > prDate) {
-      window.alert('Mahkemeyi gecme tarihi PR tarihinden sonra olamaz');
+      window.alert('Mahkemeyi geçme tarihi PR tarihinden sonra olamaz');
     } else if (isRefugeeClaimed && refugeeClaimDate > prDate) {
       window.alert('Refugee claim tarihi PR tarihinden sonra olamaz');
     } else if (entryDate > prDate) {
-      window.alert("Kanada'ya giris tarihi PR tarihinden sonra olamaz");
+      window.alert("Kanada'ya giriş tarihi PR tarihinden sonra olamaz");
     } else if (istraveledAbroad) {
       data.travelDates.forEach((item, index) => {
         if (item.exit < entryDate) {
           window.alert(
             index +
               1 +
-              ". siradaki seyahatteki cikis tarihi Kanada'ya ilk giris tarihinden sonra olmali",
+              ". sıradaki seyahatteki çıkış tarihi Kanada'ya ilk giriş tarihinden sonra olmalı",
           );
         } else if (item.entry < item.exit) {
           window.alert(
             index +
               1 +
-              '. siradaki seyahatteki giris tarihi cikis tarihinden sonra olmali',
+              '. sıradaki seyahatteki giriş tarihi çıkış tarihinden sonra olmalı',
           );
         }
       });
@@ -188,212 +185,252 @@ function Home() {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <div id='home'>
         <div className='container'>
+          <section className='ad'>REKLAM</section>
+        </div>
+        <div className='container'>
           <form onSubmit={calculateCitizenshipDate}>
-            <section className='section'>
-              <KeyboardDatePicker
-                style={{ color: 'white' }}
-                required
-                autoOk
-                disableFuture
-                className='date-picker'
-                margin='normal'
-                id='date-picker-dialog'
-                label="Kanada'ya Giriş Tarihi"
-                format='dd-MM-yyyy'
-                value={entryDate}
-                onChange={(date) => {
-                  if (date !== null) {
-                    setData({
-                      ...data,
-                      entryDate: date,
-                    });
-                  }
-                }}
-              />
-            </section>
-            <div className='form-item flex-row'>
-              <FormLabel component='legend'>Refugee Claim ettiniz mi</FormLabel>
-              <RadioGroup
-                row
-                name='isRefugeeClaimed'
-                value={isRefugeeClaimed}
-                onChange={handleChange}>
-                <FormControlLabel
-                  value={true}
-                  control={<Radio />}
-                  label='Evet'
-                />
-                <FormControlLabel
-                  value={false}
-                  control={<Radio />}
-                  label='Hayir'
-                />
-              </RadioGroup>
-            </div>
-            {data.isRefugeeClaimed && (
-              <div>
+            <Box
+              style={{
+                paddingTop: '20px',
+                paddingRight: '20px',
+              }}>
+              <section className='section box'>
                 <KeyboardDatePicker
-                  className='form-item'
-                  autoOk
+                  style={{ color: 'white' }}
                   required
+                  autoOk
                   disableFuture
+                  className='date-picker'
                   margin='normal'
                   id='date-picker-dialog'
-                  label='Refugee Claim Tarihi'
+                  label="Kanada'ya giriş tarihi"
                   format='dd-MM-yyyy'
-                  value={refugeeClaimDate}
-                  helperText='Sari kagit uzerinde yazan tarih'
+                  value={entryDate}
                   onChange={(date) => {
                     if (date !== null) {
                       setData({
                         ...data,
-                        refugeeClaimDate: date,
+                        entryDate: date,
                       });
                     }
                   }}
                 />
+              </section>
+              <section className='box'>
+                <div className='text'> İltica talebinde bulundunuz mu?</div>
+                <div className='section'>
+                  <FormControl className='form-item flex-row'>
+                    <FormLabel component='legend'></FormLabel>
+                    <RadioGroup
+                      row
+                      name='isRefugeeClaimed'
+                      value={isRefugeeClaimed}
+                      onChange={handleChange}>
+                      <FormControlLabel
+                        value={true}
+                        control={<Radio />}
+                        label='Evet'
+                      />
+                      <FormControlLabel
+                        value={false}
+                        control={<Radio />}
+                        label='Hayır'
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </div>
+                <div>
+                  {data.isRefugeeClaimed && (
+                    <div className='section'>
+                      <KeyboardDatePicker
+                        className='date-picker'
+                        autoOk
+                        required
+                        disableFuture
+                        margin='normal'
+                        id='date-picker-dialog'
+                        label='İltica tarihi'
+                        format='dd-MM-yyyy'
+                        value={refugeeClaimDate}
+                        helperText='Sarı kağıt üzerinde yazan tarih'
+                        onChange={(date) => {
+                          if (date !== null) {
+                            setData({
+                              ...data,
+                              refugeeClaimDate: date,
+                            });
+                          }
+                        }}
+                      />
 
+                      <KeyboardDatePicker
+                        autoOk
+                        required
+                        disableFuture
+                        className='date-picker'
+                        margin='normal'
+                        id='date-picker-dialog'
+                        label='Mahkemeyi geçiş tarihi'
+                        format='dd-MM-yyyy'
+                        value={protectedPersonDate}
+                        helperText='Karar metnindeki tarih'
+                        onChange={(date) => {
+                          if (date !== null) {
+                            setData({
+                              ...data,
+                              protectedPersonDate: date,
+                            });
+                          }
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+              </section>
+              <section className='section box'>
                 <KeyboardDatePicker
                   autoOk
-                  required
-                  disableFuture
-                  className='form-item'
+                  className='date-picker'
                   margin='normal'
+                  disableFuture
                   id='date-picker-dialog'
-                  label='Mahkemeyi gecis tarihi'
+                  label='PR tarihi'
                   format='dd-MM-yyyy'
-                  value={protectedPersonDate}
-                  helperText='Karar metnindeki tarih'
+                  required
+                  value={prDate}
                   onChange={(date) => {
                     if (date !== null) {
                       setData({
                         ...data,
-                        protectedPersonDate: date,
+                        prDate: date,
                       });
                     }
                   }}
                 />
-              </div>
-            )}
-            <KeyboardDatePicker
-              autoOk
-              className='form-item'
-              margin='normal'
-              disableFuture
-              id='date-picker-dialog'
-              label='PR Tarihi'
-              format='dd-MM-yyyy'
-              required
-              value={prDate}
-              onChange={(date) => {
-                if (date !== null) {
-                  setData({
-                    ...data,
-                    prDate: date,
-                  });
-                }
-              }}
-            />
-            <br />
-            <FormControl component='fieldset' className='form-item'>
-              <FormLabel component='legend'>
-                Yurtdisina cikis yaptiniz mi?
-              </FormLabel>
-              <RadioGroup
-                row
-                name='istraveledAbroad'
-                value={istraveledAbroad}
-                onChange={handleChange}>
-                <FormControlLabel
-                  value={true}
-                  control={<Radio />}
-                  label='Evet'
-                />
-                <FormControlLabel
-                  value={false}
-                  control={<Radio />}
-                  label='Hayir'
-                />
-              </RadioGroup>
-            </FormControl>
-            {data.istraveledAbroad && (
-              <div className='text-fields'>
-                {travelDates.map((item, index) => (
-                  <div key={index}>
-                    <KeyboardDatePicker
-                      autoOk
-                      disableFuture
-                      className='form-item'
-                      margin='normal'
-                      id='date-picker-dialog'
-                      label='Cikis Tarihi'
-                      required
-                      format='dd-MM-yyyy'
-                      value={travelDates[index].exit}
-                      onChange={(date) => {
-                        if (date !== null) {
-                          setData({
-                            ...data,
-                            travelDates: [
-                              ...travelDates.slice(0, index),
-                              {
-                                ...travelDates[index],
-                                exit: date,
-                              },
-                              ...travelDates.slice(index + 1),
-                            ],
-                          });
-                        }
-                      }}
-                    />
-                    <KeyboardDatePicker
-                      autoOk
-                      disableFuture
-                      className='form-item'
-                      margin='normal'
-                      required
-                      id='date-picker-dialog'
-                      label='Giris Tarihi'
-                      format='dd-MM-yyyy'
-                      value={travelDates[index].entry}
-                      onChange={(date) => {
-                        if (date !== null) {
-                          setData({
-                            ...data,
-                            travelDates: [
-                              ...travelDates.slice(0, index),
-                              {
-                                ...travelDates[index],
-                                entry: date,
-                              },
-                              ...travelDates.slice(index + 1),
-                            ],
-                          });
-                        }
-                      }}
-                    />
-                    <Button className='icon'>
-                      <RemoveCircleIcon onClick={() => removeTravel(index)} />
-                    </Button>
+              </section>
+              <section className='box'>
+                <div className='text'>
+                  Giriş tarihinden sonra yurtdışına hiç çıkış yaptınız mı?
+                </div>
+                <div className='section'>
+                  <FormControl component='fieldset' className='form-item'>
+                    <RadioGroup
+                      row
+                      name='istraveledAbroad'
+                      value={istraveledAbroad}
+                      onChange={handleChange}>
+                      <FormControlLabel
+                        value={true}
+                        control={<Radio />}
+                        label='Evet'
+                      />
+                      <FormControlLabel
+                        value={false}
+                        control={<Radio />}
+                        label='Hayır'
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </div>
+
+                {data.istraveledAbroad && (
+                  <div className='text-fields'>
+                    {travelDates.map((item, index) => (
+                      <div key={index} className='section date-picker'>
+                        <KeyboardDatePicker
+                          className='date-picker'
+                          autoOk
+                          disableFuture
+                          margin='normal'
+                          id='date-picker-dialog'
+                          label='Çıkış tarihi'
+                          required
+                          format='dd-MM-yyyy'
+                          value={travelDates[index].exit}
+                          onChange={(date) => {
+                            if (date !== null) {
+                              setData({
+                                ...data,
+                                travelDates: [
+                                  ...travelDates.slice(0, index),
+                                  {
+                                    ...travelDates[index],
+                                    exit: date,
+                                  },
+                                  ...travelDates.slice(index + 1),
+                                ],
+                              });
+                            }
+                          }}
+                        />
+                        <KeyboardDatePicker
+                          autoOk
+                          className='date-picker'
+                          disableFuture
+                          margin='normal'
+                          required
+                          id='date-picker-dialog'
+                          label='Giriş tarihi'
+                          format='dd-MM-yyyy'
+                          value={travelDates[index].entry}
+                          onChange={(date) => {
+                            if (date !== null) {
+                              setData({
+                                ...data,
+                                travelDates: [
+                                  ...travelDates.slice(0, index),
+                                  {
+                                    ...travelDates[index],
+                                    entry: date,
+                                  },
+                                  ...travelDates.slice(index + 1),
+                                ],
+                              });
+                            }
+                          }}
+                        />
+                        <Button className='icon'>
+                          <RemoveCircleIcon
+                            color='secondary'
+                            className='icon'
+                            onClick={() => removeTravel(index)}
+                          />
+                        </Button>
+                      </div>
+                    ))}
+                    <Box style={{ textAlign: 'center', marginBottom: '20px' }}>
+                      <Button
+                        onClick={addTravel}
+                        variant='contained'
+                        color='secondary'
+                        className='exit'>
+                        Yeni çıkış ekle <AddCircleIcon />
+                      </Button>
+                    </Box>
                   </div>
-                ))}
-                <Button onClick={addTravel}>
-                  Yeni cikis ekle <AddCircleIcon />
-                </Button>
-              </div>
-            )}
-            <Button
-              variant='contained'
-              color='secondary'
-              className='btn'
-              type='submit'>
-              Hesapla
-            </Button>
-            <div>Gecen Gun Sayisi: {passedDays}</div>
+                )}
+              </section>
+            </Box>
+            <Box
+              style={{
+                paddingLeft: '10px',
+                paddingRight: '10px',
+                margin: '20px 0',
+              }}>
+              <Button
+                variant='contained'
+                color='primary'
+                className='btn-hesapla'
+                type='submit'>
+                Hesapla
+              </Button>
+            </Box>
+
+            <div>Geçen Gün Sayısı: {passedDays}</div>
             <div>
-              Kalan Gun Sayisi: {1095 - (passedDays > 1095 ? 1095 : passedDays)}
+              Kalan Gün Sayısı: {1095 - (passedDays > 1095 ? 1095 : passedDays)}
             </div>
-            <div>Vatandaslik hakedis tarihi: {citizenshipDate}</div>
+            <div>Vatandaşlık hakediş tarihi: {citizenshipDate}</div>
           </form>
         </div>
       </div>
