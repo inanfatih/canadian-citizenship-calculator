@@ -56,10 +56,57 @@ body {
   padding: 0 30px;
   color: rgb(118, 118, 118);
 
-  .ad {
-    border: 2px rgb(118, 118, 118) solid;
+  .ad-container {
     border-radius: 5px;
     margin: 30px 10px;
+
+    .ad-description {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 2px rgb(118, 118, 118) solid;
+      margin: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .hosting {
+        font-size: 5rem;
+        color: #f50057;
+        font-family: 'Shadows Into Light', cursive;
+        width: 450px;
+      }
+      .text {
+        width: 400px;
+        overflow-wrap: break-word;
+      }
+    }
+
+    .ad-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      border-radius: 5px;
+      .text {
+        text-align: center;
+      }
+    }
+
+    .item {
+      width: 200px;
+      border: 2px rgb(118, 118, 118) solid;
+      flex-basis: auto;
+      flex-grow: 1;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 5px;
+
+      .ad-icon {
+        padding: 10px;
+        color: red;
+        text-align: center;
+      }
+    }
   }
 
   .container {

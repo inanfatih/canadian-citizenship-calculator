@@ -43,10 +43,46 @@ body {
 #home {
   padding: 0 30px;
   color: #767676; }
-  #home .ad {
-    border: 2px #767676 solid;
+  #home .ad-container {
     border-radius: 5px;
     margin: 30px 10px; }
+    #home .ad-container .ad-description {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 2px #767676 solid;
+      margin: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      #home .ad-container .ad-description .hosting {
+        font-size: 5rem;
+        color: #f50057;
+        font-family: 'Shadows Into Light', cursive;
+        width: 450px; }
+      #home .ad-container .ad-description .text {
+        width: 400px;
+        overflow-wrap: break-word; }
+    #home .ad-container .ad-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      border-radius: 5px; }
+      #home .ad-container .ad-box .text {
+        text-align: center; }
+    #home .ad-container .item {
+      width: 200px;
+      border: 2px #767676 solid;
+      flex-basis: auto;
+      flex-grow: 1;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 5px; }
+      #home .ad-container .item .ad-icon {
+        padding: 10px;
+        color: red;
+        text-align: center; }
   #home .container {
     background: white no-repeat center center/cover;
     border-radius: 5px;

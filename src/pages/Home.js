@@ -15,7 +15,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import difference from '../util/difference';
-
+import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 function Home() {
   const [data, setData] = React.useState({
     entryDate: null,
@@ -185,7 +185,63 @@ function Home() {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <div id='home'>
         <div className='container'>
-          <section className='ad'>REKLAM</section>
+          <section className='ad-container'>
+            <div className='ad-description'>
+              <div className='hosting'>Hosting: $0 </div>
+
+              <div className='hosting'>(416) 688-9555</div>
+
+              <div className='text'>
+                Yillik Hosting odemesi olmayan Web sitesi ve Web Uygulamasi
+                talepleriniz icin beni arayin
+              </div>
+            </div>
+
+            <div className='ad-box'>
+              <div className='item '>
+                <i class='fas fa-rocket fa-3x' style={adIconStyle}></i>
+                <div className='text'>Fast</div>
+              </div>
+              <div className='item'>
+                <MoneyOffIcon
+                  style={{
+                    fontSize: '3.9rem',
+                    ...adIconStyle,
+                    padding: '-8px',
+                  }}
+                />
+                <div className='text'>No Hosting Fee</div>
+              </div>
+              <div className='item'>
+                <i class='fas fa-cloud fa-3x' style={adIconStyle}></i>
+                <div className='text'>Cloud Technology</div>
+              </div>
+              <div className='item'>
+                <i class='fab fa-react fa-3x' style={adIconStyle}></i>
+                <div className='text'>React - WordPress degil</div>
+              </div>
+              <div className='item'>
+                <i class='fas fa-mobile-alt fa-3x' style={adIconStyle}></i>
+                <div className='text'>Mobile Uyumlu</div>
+              </div>
+              <div className='item'>
+                <i class='fas fa-user-secret fa-3x' style={adIconStyle}></i>
+                <div className='text'>Secure</div>
+              </div>
+              <div className='item'>
+                <i class='fas fa-tasks fa-3x' style={adIconStyle}></i>
+                <div className='text'>Customizable / Manageable</div>
+              </div>
+              <div className='item'>
+                <i class='fas fa-tools fa-3x' style={adIconStyle}></i>
+                <div className='text'>Kolay ve kisiye ozel admin paneli</div>
+              </div>
+              <div className='item'>
+                <i class='fab fa-searchengin fa-3x' style={adIconStyle}></i>
+                <div className='text'>Search Engine</div>
+              </div>
+            </div>
+          </section>
         </div>
         <div className='container'>
           <form onSubmit={calculateCitizenshipDate}>
@@ -310,7 +366,7 @@ function Home() {
               </section>
               <section className='box'>
                 <div className='text'>
-                  Giriş tarihinden sonra yurtdışına hiç çıkış yaptınız mı?
+                  Giriş tarihinden sonra yurt dışına hiç çıkış yaptınız mı?
                 </div>
                 <div className='section'>
                   <FormControl component='fieldset' className='form-item'>
@@ -437,5 +493,12 @@ function Home() {
     </MuiPickersUtilsProvider>
   );
 }
+
+let adIconStyle = {
+  padding: '10px',
+  color: '#f50057',
+  textAlign: 'center',
+  width: '100%',
+};
 
 export default Home;
