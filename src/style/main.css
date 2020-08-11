@@ -1,3 +1,28 @@
+@media (max-width: 500px) {
+  .container {
+    padding: 0 0.5rem !important; }
+  #home {
+    padding: 0 20px !important; }
+    #home .ad-container {
+      border-radius: 5px;
+      margin: 30px 10px; }
+      #home .ad-container .ad-description .hosting {
+        display: none !important; }
+      #home .ad-container .ad-description .hosting-mobile {
+        display: block !important; }
+    #home .section {
+      flex-direction: column; }
+    #home .multi-date-picker {
+      border: 2px #767676 solid;
+      border-radius: 5px;
+      margin: 10px;
+      margin-right: 10px; }
+  #navbar {
+    height: 70px !important; }
+    #navbar .title {
+      font-size: 1.3rem !important;
+      line-height: 70px !important; } }
+
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +46,7 @@ body {
 
 .container {
   max-width: 1024px;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   margin: auto;
   overflow: hidden; }
 
@@ -33,9 +58,11 @@ body {
   height: 100px;
   margin: auto;
   display: block;
-  position: relative; }
+  position: relative;
+  background: #f50057;
+  margin-bottom: 30px; }
   #navbar .title {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     line-height: 90px;
     color: White; }
@@ -48,22 +75,40 @@ body {
     margin: 30px 10px; }
     #home .ad-container .ad-description {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      flex-direction: column;
       align-items: center;
       border: 2px #767676 solid;
       margin: 5px;
       border-radius: 5px;
       padding: 5px;
-      flex-direction: row;
       flex-wrap: wrap; }
+      #home .ad-container .ad-description .text-web {
+        font-size: 2rem;
+        text-align: center; }
+        #home .ad-container .ad-description .text-web .price {
+          color: #46237a;
+          font-weight: 800; }
       #home .ad-container .ad-description .hosting {
-        font-size: 5rem;
+        font-size: 4rem;
         color: #f50057;
         font-family: 'Shadows Into Light', cursive;
-        width: 450px; }
+        width: 450px;
+        margin-right: -100px; }
+      #home .ad-container .ad-description .hosting-mobile {
+        display: none;
+        text-align: center;
+        font-size: 4rem;
+        color: #f50057;
+        font-family: 'Shadows Into Light', cursive;
+        width: 450px;
+        margin: -10px -150px; }
       #home .ad-container .ad-description .text {
-        width: 400px;
         overflow-wrap: break-word; }
+      #home .ad-container .ad-description .phoneNumber {
+        font-size: 2rem;
+        color: #f50057;
+        text-align: center; }
     #home .ad-container .ad-box {
       display: flex;
       flex-direction: row;
@@ -106,6 +151,10 @@ body {
       height: 100px;
       margin: 5px 10px;
       margin-bottom: -25px; }
+  #home .multi-date-picker {
+    border: 2px #767676 solid;
+    border-radius: 5px;
+    margin: 20px; }
   #home .icon {
-    margin-bottom: 5px;
-    font-size: 2rem; }
+    margin-bottom: 3px;
+    font-size: 1rem; }
