@@ -4,7 +4,10 @@ function Navbar() {
   return (
     <div id='navbar'>
       <div className='container'>
-        <p className='title'>Kanada Vatandaşlık Süresi Hesaplama</p>
+        <div className='navbar-container'>
+          <div className='icon'></div>
+          <div className='title'>Kanada Vatandaşlık Süresi Hesaplama</div>
+        </div>
       </div>
     </div>
   );

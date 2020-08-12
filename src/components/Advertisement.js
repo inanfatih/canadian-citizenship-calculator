@@ -6,14 +6,17 @@ function Advertisement() {
     <div className='container'>
       <section className='ad-container'>
         <div className='ad-description'>
-          <div className='text-web'>Web Sitesi ve Web Uygulamalarında</div>
-          <div className='hosting-mobile'>Yıllık</div>
-          <div className='hosting-mobile'>Hosting: $0</div>
-          <div className='hosting'>Yıllık Hosting: $0</div>
           <div className='text-web'>
             <span className='price'>$799</span>
-            'dan baslayan fiyatlarla
+            'dan başlayan fiyatlarla kisiye/sirkete ozel Web Sitesi ve Web
+            Uygulamalarında
           </div>
+          <div className='hosting-mobile'>Yıllık Hosting: $0</div>
+          <div className='hosting'>Yıllık Hosting: $0</div>
+          {/* <div className='text-web'>
+            <span className='price'>$799</span>
+            'dan başlayan fiyatlarla
+          </div> */}
 
           <div className='phoneNumber'>(416) 688-9555</div>
         </div>
