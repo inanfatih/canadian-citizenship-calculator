@@ -291,7 +291,7 @@ function Home() {
               <Box
                 style={{
                   paddingTop: '20px',
-                  paddingRight: '20px',
+                  paddingRight: '10px',
                 }}>
                 <section className='box'>
                   <div className='box-date'>
@@ -418,7 +418,7 @@ function Home() {
                 <section className='box'>
                   <div className='box-radio'>
                     <div className='text'>
-                      Giriş tarihinden sonra yurt dışına çıkış yaptınız mı?
+                      Giriş tarihinden sonra yurt dışına çıktınız mı?
                     </div>
                     <div className='section'>
                       <FormControl component='fieldset' className='form-item'>
@@ -532,15 +532,6 @@ function Home() {
                 <Button
                   style={{ marginRight: '10px' }}
                   variant='contained'
-                  color='primary'
-                  className='btn-hesapla'
-                  type='submit'>
-                  Hesapla
-                </Button>
-
-                <Button
-                  style={{ marginLeft: '10px' }}
-                  variant='contained'
                   color='secondary'
                   onClick={() => {
                     setData({
@@ -565,6 +556,14 @@ function Home() {
                   className='btn-hesapla'>
                   Formu Temizle
                 </Button>
+                <Button
+                  style={{ marginLeft: '10px' }}
+                  variant='contained'
+                  color='primary'
+                  className='btn-hesapla'
+                  type='submit'>
+                  Hesapla
+                </Button>
               </Box>
 
               {/* <div>Geçen Gün Sayısı: {passedDays}</div>
@@ -574,7 +573,48 @@ function Home() {
                 <div>Vatandaşlık hakediş tarihi: {citizenshipDate}</div> */}
             </form>
           </div>
-          <div style={{ backgroundColor: 'yellow' }} />
+          <section className='ad-container-2'>
+            <div className='ad-description'>
+              <div className='text-web'>
+                <span className='price'>$799</span>
+                'dan başlayan fiyatlarla kişiye/şirkete özel Web Sitesi ve Web
+                Uygulamalarında
+              </div>
+              <div className='hosting'>Yıllık Hosting: $0</div>
+              {/* <div>Yıllık Hosting: $0</div> */}
+
+              <div className='phoneNumber'>(416) 688-9555</div>
+            </div>
+
+            <div className='ad-box'>
+              <div className='item'>
+                <i class='fas fa-mobile-alt fa-3x' style={adIconStyle2}></i>
+                <div className='text'>Mobil Uyumlu</div>
+              </div>
+              <div className='item'>
+                <i class='fas fa-tasks fa-3x' style={adIconStyle2}></i>
+                <div className='text'>Yönetilebilir</div>
+              </div>
+              <div className='item '>
+                <i class='fas fa-rocket fa-3x' style={adIconStyle2}></i>
+                <div className='text'>Hızlı</div>
+              </div>
+              <div className='item'>
+                <i class='fab fa-react fa-3x' style={adIconStyle2}></i>
+                <div className='text'> React sistemi</div>
+              </div>
+
+              <div className='item'>
+                <i class='fas fa-user-secret fa-3x' style={adIconStyle2}></i>
+                <div className='text'>Güvenli</div>
+              </div>
+
+              <div className='item'>
+                <i class='fab fa-searchengin fa-3x' style={adIconStyle2}></i>
+                <div className='text'>SEO Destekli</div>
+              </div>
+            </div>
+          </section>
         </div>
       )}
     </MuiPickersUtilsProvider>
@@ -583,7 +623,14 @@ function Home() {
 
 let adIconStyle = {
   padding: '5px',
-  color: '#256EFF',
+  color: '#F5D18F',
+  textAlign: 'center',
+  width: '100%',
+};
+
+let adIconStyle2 = {
+  padding: '5px',
+  color: '#f5d18f',
   textAlign: 'center',
   width: '100%',
 };

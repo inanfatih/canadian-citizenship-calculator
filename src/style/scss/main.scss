@@ -5,7 +5,7 @@
 html {
   --filled-box: 100%;
   --navbar-height: 125px;
-  --footer-height: 100px;
+  --footer-height: 60px;
 }
 
 * {
@@ -31,13 +31,13 @@ a:active {
 body {
   // background: url('../images/background.jpg') no-repeat center center/cover;
 
-  background-attachment: fixed;
+  // background-attachment: fixed;
   margin-bottom: var(--footer-height);
 }
 
 .center-container {
   // max-width: $website-width;
-  padding: 0 10px;
+  padding-right: 10px;
   // margin: 10px;
   overflow: hidden;
 }
@@ -53,7 +53,7 @@ body {
   display: block;
   position: relative;
   background: url('../images/ust.jpg') no-repeat center center/cover;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   .navbar-container {
     display: flex;
     width: 100%;
@@ -82,19 +82,84 @@ body {
   // padding: 0 30px;
   color: rgb(118, 118, 118);
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 350px auto 280px;
   .center-container {
     background: rgba(106, 143, 217, 0.05) no-repeat center center/cover;
     border-radius: 5px;
-    margin: 0 10px 30px;
+    margin: 0;
   }
 
   .ad-container {
-    // width: 400px;
-
-    background: rgba(106, 143, 217, 0.05) no-repeat center center/cover;
+    background: #af1038;
     border-radius: 5px;
     margin: 0 10px;
+    color: white;
+    padding-bottom: 0;
+
+    .ad-description {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      // border: 2px rgb(118, 118, 118) solid;
+      margin: 10px;
+      border-radius: 5px;
+      padding: 5px;
+      flex-wrap: wrap;
+
+      .text-web {
+        font-size: 1.8rem;
+        text-align: center;
+        margin: 10px 0;
+        .price {
+          color: #f5d18f;
+          font-weight: 800;
+          font-size: 3rem;
+        }
+      }
+
+      .hosting {
+        font-size: 3.2rem;
+        color: #f5d18f;
+        font-family: 'Shadows Into Light', cursive;
+      }
+      .phoneNumber {
+        font-size: 3rem !important;
+      }
+      .text {
+        overflow-wrap: break-word;
+      }
+      .phoneNumber {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+      }
+    }
+
+    .ad-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .text {
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
+
+    .item {
+      width: 100px;
+      // border: 2px rgb(118, 118, 118) solid;
+      flex-basis: auto;
+      flex-grow: 1;
+      margin: 5px;
+    }
+  }
+
+  .ad-container-2 {
+    background: #222649;
+    border-radius: 5px;
+    margin: 0 10px;
+    color: white;
 
     .ad-description {
       display: flex;
@@ -112,14 +177,15 @@ body {
         text-align: center;
         margin: 10px 0;
         .price {
-          color: #46237a;
+          color: #f5d18f;
           font-weight: 800;
+          font-size: 3rem;
         }
       }
 
       .hosting {
         font-size: 3rem;
-        color: #f50057;
+        color: #f5d18f;
         font-family: 'Shadows Into Light', cursive;
       }
       .text {
@@ -127,7 +193,7 @@ body {
       }
       .phoneNumber {
         font-size: 2rem;
-        color: #f50057;
+        color: white;
         text-align: center;
       }
     }
@@ -177,32 +243,34 @@ body {
 
     .text {
       font-size: 1.5rem;
-      text-align: center;
-      color: rgb(118, 118, 118);
+      text-align: left;
+      color: #222649;
       margin: 10px;
       margin-left: 30px;
-      margin-right: 150px;
+      // margin-right: 150px;
     }
 
     .multi-date {
       text-align: right;
       padding-right: 20px;
+      margin-bottom: 10px;
       .date-picker {
-        width: 180px;
+        width: 200px;
         height: 100px;
         margin: 5px 10px;
-        margin-bottom: -25px;
+        margin-bottom: -15px;
       }
     }
 
     .multi-date-with-button {
       text-align: right;
       padding-right: 20px;
+      // margin-top: -20px;
       .date-picker {
-        width: 180px;
+        width: 200px;
         height: 100px;
         margin: 5px 10px;
-        margin-bottom: -25px;
+        margin-bottom: -15px;
       }
     }
   }
@@ -211,13 +279,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 200px;
 
     .date-picker {
-      width: 180px;
+      width: 200px;
       height: 100px;
       margin: 5px 10px;
-      margin-bottom: -25px;
+      margin-top: 20px;
+      margin-bottom: -15px;
     }
   }
 
@@ -226,6 +294,7 @@ body {
     margin-bottom: 3px;
   }
 }
+
 .result-container {
   margin: auto;
   display: flex;
