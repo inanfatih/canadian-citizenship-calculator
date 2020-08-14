@@ -12,7 +12,7 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from 'react-router-dom';
-import CountDown from './pages/CountDown';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/count' component={CountDown} />
         <Redirect to='/' />
       </Switch>
+      <Footer />
     </Router>
   );
 }
