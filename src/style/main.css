@@ -219,8 +219,8 @@ body {
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
   text-align: center;
   color: #fff;
   overflow: hidden;

@@ -212,91 +212,91 @@ function Home() {
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      {isCalculated ? (
-        <div className='result-container'>
-          <div className='result-text-container'>
-            <div className='result-text'>Geçen Gün:</div>
-            <div className='result-text'>{passedDays}</div>
-            <div className='result-text'>Kalan Gün:</div>
-            <div className='result-text'>
-              {1095 - (passedDays > 1095 ? 1095 : passedDays)}
+      <div id='home'>
+        <section className='ad-container'>
+          <div className='ad-description'>
+            <div className='text-web'>
+              <span className='price'>$799</span>
+              'dan başlayan fiyatlarla kişiye/şirkete özel Web Sitesi ve Web
+              Uygulamalarında
             </div>
-            <div className='result-text'>Hak etme tarihi:</div>
-            <div className='result-text'>{citizenshipDate}</div>
+            <div className='hosting'>Yıllık Hosting: $0</div>
+            {/* <div>Yıllık Hosting: $0</div> */}
+
+            <div className='phoneNumber'>(416) 688-9555</div>
           </div>
-          <Button
-            style={{ margin: '10px 0' }}
-            variant='contained'
-            color='primary'
-            onClick={() => {
-              setIsCalculated(false);
-            }}>
-            <ArrowBackIcon />
-            GERİ
-          </Button>
-        </div>
-      ) : (
-        <div id='home'>
-          <section className='ad-container'>
-            <div className='ad-description'>
-              <div className='text-web'>
-                <span className='price'>$799</span>
-                'dan başlayan fiyatlarla kişiye/şirkete özel Web Sitesi ve Web
-                Uygulamalarında
-              </div>
-              <div className='hosting'>Yıllık Hosting: $0</div>
-              {/* <div>Yıllık Hosting: $0</div> */}
 
-              <div className='phoneNumber'>(416) 688-9555</div>
+          <div className='ad-box'>
+            <div className='item'>
+              <i className='fas fa-cloud fa-2x' style={adIconStyle}></i>
+              <div className='text'>Google Cloud Teknolojisi</div>
+            </div>
+            <div className='item'>
+              <i className='fas fa-tools fa-2x' style={adIconStyle}></i>
+              <div className='text'>Kolay admin paneli</div>
+            </div>
+            <div className='item'>
+              <MoneyOffIcon
+                style={{
+                  fontSize: '2.5rem',
+                  ...adIconStyle,
+                  padding: '-8px',
+                }}
+              />
+              <div className='text'>Ücretsiz Hosting</div>
+            </div>
+            <div className='item'>
+              <i className='fas fa-mobile-alt fa-2x' style={adIconStyle}></i>
+              <div className='text'>Mobil Uyumlu</div>
+            </div>
+            <div className='item'>
+              <i className='fas fa-tasks fa-2x' style={adIconStyle}></i>
+              <div className='text'>Yönetilebilir</div>
+            </div>
+            <div className='item '>
+              <i className='fas fa-rocket fa-2x' style={adIconStyle}></i>
+              <div className='text'>Hızlı</div>
+            </div>
+            <div className='item'>
+              <i className='fab fa-react fa-2x' style={adIconStyle}></i>
+              <div className='text'> React sistemi</div>
             </div>
 
-            <div className='ad-box'>
-              <div className='item'>
-                <i className='fas fa-cloud fa-2x' style={adIconStyle}></i>
-                <div className='text'>Google Cloud Teknolojisi</div>
-              </div>
-              <div className='item'>
-                <i className='fas fa-tools fa-2x' style={adIconStyle}></i>
-                <div className='text'>Kolay admin paneli</div>
-              </div>
-              <div className='item'>
-                <MoneyOffIcon
-                  style={{
-                    fontSize: '2.5rem',
-                    ...adIconStyle,
-                    padding: '-8px',
-                  }}
-                />
-                <div className='text'>Ücretsiz Hosting</div>
-              </div>
-              <div className='item'>
-                <i className='fas fa-mobile-alt fa-2x' style={adIconStyle}></i>
-                <div className='text'>Mobil Uyumlu</div>
-              </div>
-              <div className='item'>
-                <i className='fas fa-tasks fa-2x' style={adIconStyle}></i>
-                <div className='text'>Yönetilebilir</div>
-              </div>
-              <div className='item '>
-                <i className='fas fa-rocket fa-2x' style={adIconStyle}></i>
-                <div className='text'>Hızlı</div>
-              </div>
-              <div className='item'>
-                <i className='fab fa-react fa-2x' style={adIconStyle}></i>
-                <div className='text'> React sistemi</div>
-              </div>
-
-              <div className='item'>
-                <i className='fas fa-user-secret fa-2x' style={adIconStyle}></i>
-                <div className='text'>Güvenli</div>
-              </div>
-
-              <div className='item'>
-                <i className='fab fa-searchengin fa-2x' style={adIconStyle}></i>
-                <div className='text'>SEO Destekli</div>
-              </div>
+            <div className='item'>
+              <i className='fas fa-user-secret fa-2x' style={adIconStyle}></i>
+              <div className='text'>Güvenli</div>
             </div>
-          </section>
+
+            <div className='item'>
+              <i className='fab fa-searchengin fa-2x' style={adIconStyle}></i>
+              <div className='text'>SEO Destekli</div>
+            </div>
+          </div>
+        </section>
+        {isCalculated ? (
+          <div className='result-container'>
+            <div className='result-text-container'>
+              <div className='result-text'>Geçen Gün:</div>
+              <div className='result-text'>{passedDays}</div>
+              <div className='result-text'>Kalan Gün:</div>
+              <div className='result-text'>
+                {1095 - (passedDays > 1095 ? 1095 : passedDays)}
+              </div>
+              <div className='result-text'>Hak etme tarihi:</div>
+              <div className='result-text'>{citizenshipDate}</div>
+            </div>
+            <Button
+              style={{ marginTop: '10px' }}
+              variant='contained'
+              color='primary'
+              onClick={() => {
+                setIsCalculated(false);
+              }}>
+              <ArrowBackIcon />
+              GERİ
+            </Button>
+          </div>
+        ) : (
           <div className='center-container'>
             <form onSubmit={calculateCitizenshipDate}>
               <Box
@@ -583,9 +583,9 @@ function Home() {
                 <div>Vatandaşlık hakediş tarihi: {citizenshipDate}</div> */}
             </form>
           </div>
-          <section className='ad-container-2'></section>
-        </div>
-      )}
+        )}
+        <section className='ad-container-2'></section>
+      </div>
     </MuiPickersUtilsProvider>
   );
 }
