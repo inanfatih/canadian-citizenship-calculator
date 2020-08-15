@@ -15,8 +15,6 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import difference from '../util/difference';
-import Advertisement from '../components/Advertisement';
-import LeftAdvertisement from '../components/LeftAdvertisement';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 function Home() {
@@ -29,6 +27,11 @@ function Home() {
     protectedPersonDate: null,
     prDate: null,
     istraveledAbroad: true,
+    // entryDate: '2016-08-30',
+    // refugeeClaimDate: '2016-11-08',
+    // protectedPersonDate: '2017-03-01',
+    // prDate: '2018-10-23',
+    // istraveledAbroad: false,
     travelDates: [
       {
         exit: null,
@@ -56,11 +59,6 @@ function Home() {
   } = data;
 
   const handleChange = (e) => {
-    // console.log('dateInField', e);
-    // console.log('e.target.value', e.target.value);
-    // console.log('e.target.id', e.target.name);
-    // console.log('e.target', e.target);
-
     setData({
       ...data,
       [e.target.name]:
@@ -115,88 +113,101 @@ function Home() {
 
     if (isRefugeeClaimed && entryDate > refugeeClaimDate) {
       window.alert("Kanada'ya giriş tarihi iltica tarihinden sonra olamaz");
+      return;
     } else if (isRefugeeClaimed && entryDate > protectedPersonDate) {
       window.alert(
         "Kanada'ya giriş tarihi mahkemeyi geçme tarihinden sonra olamaz",
       );
+      return;
     } else if (isRefugeeClaimed && refugeeClaimDate > protectedPersonDate) {
       window.alert('İltica tarihi mahkemeyi geçme tarihinden sonra olamaz');
+      return;
     } else if (isRefugeeClaimed && protectedPersonDate > prDate) {
       window.alert('Mahkemeyi geçme tarihi PR tarihinden sonra olamaz');
+      return;
     } else if (isRefugeeClaimed && refugeeClaimDate > prDate) {
       window.alert('Refugee claim tarihi PR tarihinden sonra olamaz');
+      return;
     } else if (entryDate > prDate) {
       window.alert("Kanada'ya giriş tarihi PR tarihinden sonra olamaz");
+      return;
     } else if (istraveledAbroad) {
+      let isFailed = false;
       data.travelDates.forEach((item, index) => {
         if (item.exit < entryDate) {
           window.alert(
             index +
               1 +
-              ". sıradaki seyahatteki çıkış tarihi Kanada'ya ilk giriş tarihinden sonra olmalı",
+              ". sıradaki seyahatteki çıkış tarihi Kanada'ya giriş tarihinden sonra olmalı",
           );
+          isFailed = true;
         } else if (item.entry < item.exit) {
           window.alert(
             index +
               1 +
               '. sıradaki seyahatteki giriş tarihi çıkış tarihinden sonra olmalı',
           );
+          isFailed = true;
         }
       });
-    } else {
-      let totalDays = 0;
-
-      if (isRefugeeClaimed) {
-        totalDays =
-          ((difference(refugeeClaimDate, entryDate) +
-            difference(prDate, protectedPersonDate)) /
-            2 >
-          365
-            ? 365
-            : (difference(refugeeClaimDate, entryDate) +
-                difference(prDate, protectedPersonDate)) /
-              2) + difference(today, prDate);
-      } else {
-        totalDays =
-          (difference(prDate, entryDate) / 2 > 365
-            ? 365
-            : difference(prDate, entryDate) / 2) + difference(today, prDate);
+      if (isFailed) {
+        return null;
       }
-
-      let minusTraveledDays = 0;
-
-      if (istraveledAbroad) {
-        data.travelDates.forEach((item) => {
-          minusTraveledDays =
-            minusTraveledDays +
-            difference(item.entry, item.exit) * travelMultiplier(item.entry);
-        });
-      }
-
-      console.log('totaldays before', totalDays);
-      totalDays = totalDays - minusTraveledDays;
-      let remainedDays = 1095 - (totalDays > 1095 ? 1095 : totalDays);
-      setData({
-        ...data,
-        citizenshipDate: moment()
-          .add(1095 - Math.floor(totalDays), 'd')
-          .format('DD-MM-YYYY'),
-        passedDays: totalDays,
-        remainingDays: remainedDays,
-      });
-
-      // console.log('minusTraveledDays', minusTraveledDays);
-      // console.log('totaldays', totalDays);
-      console.log('data', data);
-
-      setIsCalculated(true);
-      let remainingDaysPixels = (remainedDays / 1095) * 500;
-
-      document.documentElement.style.setProperty(
-        '--filled-box',
-        remainingDaysPixels + 'px',
-      );
     }
+
+    let totalDays = 0;
+
+    if (isRefugeeClaimed) {
+      totalDays =
+        ((difference(refugeeClaimDate, entryDate) +
+          difference(prDate, protectedPersonDate)) /
+          2 >
+        365
+          ? 365
+          : (difference(refugeeClaimDate, entryDate) +
+              difference(prDate, protectedPersonDate)) /
+            2) + difference(today, prDate);
+    } else {
+      totalDays =
+        (difference(prDate, entryDate) / 2 > 365
+          ? 365
+          : difference(prDate, entryDate) / 2) + difference(today, prDate);
+    }
+
+    let minusTraveledDays = 0;
+
+    if (istraveledAbroad) {
+      data.travelDates.forEach((item) => {
+        minusTraveledDays =
+          minusTraveledDays +
+          difference(item.entry, item.exit) * travelMultiplier(item.entry);
+      });
+    }
+
+    console.log('totaldays before', totalDays);
+    totalDays = totalDays - minusTraveledDays;
+    let remainedDays = 1095 - (totalDays > 1095 ? 1095 : totalDays);
+    setData({
+      ...data,
+      citizenshipDate: moment()
+        .add(1095 - Math.floor(totalDays), 'd')
+        .format('DD-MM-YYYY'),
+      passedDays: totalDays,
+      remainingDays: remainedDays,
+    });
+
+    console.log('minusTraveledDays', minusTraveledDays);
+    console.log('totaldays', totalDays);
+    console.log('data', data);
+    console.log('remainedDays', remainedDays);
+
+    setIsCalculated(true);
+    // let remainingDaysPixels = (remainedDays / 1095) * 500;
+
+    // document.documentElement.style.setProperty(
+    //   '--filled-box',
+    //   remainingDaysPixels + 'px',
+    // );
   };
 
   return (
@@ -241,17 +252,17 @@ function Home() {
 
             <div className='ad-box'>
               <div className='item'>
-                <i class='fas fa-cloud fa-3x' style={adIconStyle}></i>
+                <i className='fas fa-cloud fa-2x' style={adIconStyle}></i>
                 <div className='text'>Google Cloud Teknolojisi</div>
               </div>
               <div className='item'>
-                <i class='fas fa-tools fa-3x' style={adIconStyle}></i>
+                <i className='fas fa-tools fa-2x' style={adIconStyle}></i>
                 <div className='text'>Kolay admin paneli</div>
               </div>
               <div className='item'>
                 <MoneyOffIcon
                   style={{
-                    fontSize: '3.9rem',
+                    fontSize: '2.5rem',
                     ...adIconStyle,
                     padding: '-8px',
                   }}
@@ -259,29 +270,29 @@ function Home() {
                 <div className='text'>Ücretsiz Hosting</div>
               </div>
               <div className='item'>
-                <i class='fas fa-mobile-alt fa-3x' style={adIconStyle}></i>
-                <div className='text'>Mobile Uyumlu</div>
+                <i className='fas fa-mobile-alt fa-2x' style={adIconStyle}></i>
+                <div className='text'>Mobil Uyumlu</div>
               </div>
               <div className='item'>
-                <i class='fas fa-tasks fa-3x' style={adIconStyle}></i>
+                <i className='fas fa-tasks fa-2x' style={adIconStyle}></i>
                 <div className='text'>Yönetilebilir</div>
               </div>
               <div className='item '>
-                <i class='fas fa-rocket fa-3x' style={adIconStyle}></i>
+                <i className='fas fa-rocket fa-2x' style={adIconStyle}></i>
                 <div className='text'>Hızlı</div>
               </div>
               <div className='item'>
-                <i class='fab fa-react fa-3x' style={adIconStyle}></i>
+                <i className='fab fa-react fa-2x' style={adIconStyle}></i>
                 <div className='text'> React sistemi</div>
               </div>
 
               <div className='item'>
-                <i class='fas fa-user-secret fa-3x' style={adIconStyle}></i>
+                <i className='fas fa-user-secret fa-2x' style={adIconStyle}></i>
                 <div className='text'>Güvenli</div>
               </div>
 
               <div className='item'>
-                <i class='fab fa-searchengin fa-3x' style={adIconStyle}></i>
+                <i className='fab fa-searchengin fa-2x' style={adIconStyle}></i>
                 <div className='text'>SEO Destekli</div>
               </div>
             </div>
@@ -290,7 +301,7 @@ function Home() {
             <form onSubmit={calculateCitizenshipDate}>
               <Box
                 style={{
-                  paddingTop: '20px',
+                  // paddingTop: '20px',
                   paddingRight: '10px',
                 }}>
                 <section className='box'>
@@ -525,12 +536,11 @@ function Home() {
               <Box
                 style={{
                   paddingLeft: '10px',
-                  paddingRight: '10px',
                   margin: '20px 0',
                   display: 'flex',
                 }}>
                 <Button
-                  style={{ marginRight: '10px' }}
+                  style={{ marginRight: '10px', fontSize: '1.5rem' }}
                   variant='contained'
                   color='secondary'
                   onClick={() => {
@@ -554,10 +564,10 @@ function Home() {
                     });
                   }}
                   className='btn-hesapla'>
-                  Formu Temizle
+                  Formu Temİzle
                 </Button>
                 <Button
-                  style={{ marginLeft: '10px' }}
+                  style={{ marginLeft: '10px', fontSize: '1.5rem' }}
                   variant='contained'
                   color='primary'
                   className='btn-hesapla'
@@ -573,48 +583,7 @@ function Home() {
                 <div>Vatandaşlık hakediş tarihi: {citizenshipDate}</div> */}
             </form>
           </div>
-          <section className='ad-container-2'>
-            <div className='ad-description'>
-              <div className='text-web'>
-                <span className='price'>$799</span>
-                'dan başlayan fiyatlarla kişiye/şirkete özel Web Sitesi ve Web
-                Uygulamalarında
-              </div>
-              <div className='hosting'>Yıllık Hosting: $0</div>
-              {/* <div>Yıllık Hosting: $0</div> */}
-
-              <div className='phoneNumber'>(416) 688-9555</div>
-            </div>
-
-            <div className='ad-box'>
-              <div className='item'>
-                <i class='fas fa-mobile-alt fa-3x' style={adIconStyle2}></i>
-                <div className='text'>Mobil Uyumlu</div>
-              </div>
-              <div className='item'>
-                <i class='fas fa-tasks fa-3x' style={adIconStyle2}></i>
-                <div className='text'>Yönetilebilir</div>
-              </div>
-              <div className='item '>
-                <i class='fas fa-rocket fa-3x' style={adIconStyle2}></i>
-                <div className='text'>Hızlı</div>
-              </div>
-              <div className='item'>
-                <i class='fab fa-react fa-3x' style={adIconStyle2}></i>
-                <div className='text'> React sistemi</div>
-              </div>
-
-              <div className='item'>
-                <i class='fas fa-user-secret fa-3x' style={adIconStyle2}></i>
-                <div className='text'>Güvenli</div>
-              </div>
-
-              <div className='item'>
-                <i class='fab fa-searchengin fa-3x' style={adIconStyle2}></i>
-                <div className='text'>SEO Destekli</div>
-              </div>
-            </div>
-          </section>
+          <section className='ad-container-2'></section>
         </div>
       )}
     </MuiPickersUtilsProvider>
@@ -624,13 +593,6 @@ function Home() {
 let adIconStyle = {
   padding: '5px',
   color: '#F5D18F',
-  textAlign: 'center',
-  width: '100%',
-};
-
-let adIconStyle2 = {
-  padding: '5px',
-  color: '#f5d18f',
   textAlign: 'center',
   width: '100%',
 };

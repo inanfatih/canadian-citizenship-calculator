@@ -1,5 +1,4 @@
 html {
-  --filled-box: 100%;
   --navbar-height: 125px;
   --footer-height: 60px; }
 
@@ -99,6 +98,8 @@ body {
         overflow-wrap: break-word; }
       #home .ad-container .ad-description .phoneNumber {
         font-size: 2rem;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #222649;
         color: white;
         text-align: center; }
     #home .ad-container .ad-box {
@@ -112,7 +113,7 @@ body {
       width: 100px;
       flex-basis: auto;
       flex-grow: 1;
-      margin: 5px; }
+      margin: 10px 5px; }
   #home .ad-container-2 {
     background: #222649;
     border-radius: 5px;
