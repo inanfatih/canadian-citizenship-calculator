@@ -42,11 +42,13 @@ body {
   width: 100%;
 }
 
+.back-button {
+  margin-top: 10px;
+}
+
 #navbar {
-  height: var(--navbar-height);
+  min-height: var(--navbar-height);
   margin: auto;
-  display: block;
-  position: relative;
   background: url('../images/ust.jpg') no-repeat center center/cover;
   margin-bottom: 10px;
   .navbar-container {
@@ -59,14 +61,14 @@ body {
     text-align: center;
     .icon {
       width: 120px;
-      margin-right: 25px;
+      margin-right: 5px;
       height: 120px;
       background: url('../images/flag.png') no-repeat center center/cover;
     }
     .title {
       font-size: 3rem;
       text-align: center;
-      line-height: 19px;
+      // line-height: 19px;
       color: White;
       font-family: 'Oswald', sans-serif;
     }
@@ -116,14 +118,12 @@ body {
         color: #f5d18f;
         font-family: 'Shadows Into Light', cursive;
       }
-      .phoneNumber {
-        font-size: 3rem !important;
-      }
+
       .text {
         overflow-wrap: break-word;
       }
       .phoneNumber {
-        font-size: 2rem;
+        font-size: 3rem;
         padding-bottom: 10px;
         border-bottom: 2px solid #222649;
 
@@ -154,60 +154,6 @@ body {
     background: #222649;
     border-radius: 5px;
     margin: 0 10px;
-    color: white;
-
-    .ad-description {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      margin: 10px;
-      border-radius: 5px;
-      padding: 5px;
-      flex-wrap: wrap;
-
-      .text-web {
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 10px 0;
-        .price {
-          color: #f5d18f;
-          font-weight: 800;
-          font-size: 3rem;
-        }
-      }
-
-      .hosting {
-        font-size: 3rem;
-        color: #f5d18f;
-        font-family: 'Shadows Into Light', cursive;
-      }
-      .text {
-        overflow-wrap: break-word;
-      }
-      .phoneNumber {
-        font-size: 2rem;
-        color: white;
-        text-align: center;
-      }
-    }
-
-    .ad-box {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      .text {
-        text-align: center;
-        font-size: 1rem;
-      }
-    }
-
-    .item {
-      width: 80px;
-      flex-basis: auto;
-      flex-grow: 1;
-      margin: 5px;
-    }
   }
 
   .box {
@@ -264,6 +210,10 @@ body {
         margin-bottom: -15px;
       }
     }
+
+    .right-sil-button {
+      display: none;
+    }
   }
 
   .single-date {
@@ -290,19 +240,20 @@ body {
   margin: auto;
   display: flex;
   justify-content: center;
-  border-radius: 5px;
+
   height: 100%;
   width: 100%;
-
   text-align: center;
   color: #fff;
   overflow: hidden;
   flex-direction: column;
 
   .result-text-container {
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    // margin: 10px;
     height: 100%;
     background: #f50057;
 
@@ -318,7 +269,6 @@ body {
   left: 0px;
   right: 0px;
   margin-bottom: 0px;
-
   height: var(--footer-height);
   width: 100%;
   background: url('../images/footer.jpg') no-repeat center center/cover;

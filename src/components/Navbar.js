@@ -6,7 +6,7 @@ function Navbar() {
       <div className='container'>
         <div className='navbar-container'>
           <div className='icon'></div>
-          <div className='title'>Vatandaşlık Süresi Hesaplama</div>
+          <div className='title'>Vatandaşlık Hesaplama</div>
         </div>
       </div>
     </div>

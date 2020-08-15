@@ -5,18 +5,16 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import FormLabel from '@material-ui/core/FormLabel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import difference from '../util/difference';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+
 function Home() {
   useEffect(() => {}, []);
 
@@ -43,7 +41,7 @@ function Home() {
     remainingDays: 1095,
   });
 
-  const [isCalculated, setIsCalculated] = useState(false);
+  const [isCalculated, setIsCalculated] = useState(true);
 
   const {
     entryDate,
@@ -116,11 +114,11 @@ function Home() {
       return;
     } else if (isRefugeeClaimed && entryDate > protectedPersonDate) {
       window.alert(
-        "Kanada'ya giriş tarihi mahkemeyi geçme tarihinden sonra olamaz",
+        "Kanada'ya giriş tarihi mahkeme geçme tarihinden sonra olamaz",
       );
       return;
     } else if (isRefugeeClaimed && refugeeClaimDate > protectedPersonDate) {
-      window.alert('İltica tarihi mahkemeyi geçme tarihinden sonra olamaz');
+      window.alert('İltica tarihi mahkeme geçme tarihinden sonra olamaz');
       return;
     } else if (isRefugeeClaimed && protectedPersonDate > prDate) {
       window.alert('Mahkemeyi geçme tarihi PR tarihinden sonra olamaz');
@@ -285,16 +283,20 @@ function Home() {
               <div className='result-text'>Hak etme tarihi:</div>
               <div className='result-text'>{citizenshipDate}</div>
             </div>
-            <Button
-              style={{ marginTop: '10px' }}
-              variant='contained'
-              color='primary'
-              onClick={() => {
-                setIsCalculated(false);
-              }}>
-              <ArrowBackIcon />
-              GERİ
-            </Button>
+            <div className='back-button'>
+              <Button
+                style={{
+                  fontSize: '1.5rem',
+                  width: '100%',
+                }}
+                variant='contained'
+                color='primary'
+                onClick={() => {
+                  setIsCalculated(false);
+                }}>
+                <i className='fas fa-arrow-circle-left'></i> GERİ
+              </Button>
+            </div>
           </div>
         ) : (
           <div className='center-container'>
@@ -333,25 +335,23 @@ function Home() {
                 <section className='box'>
                   <div className='box-radio'>
                     <div className='text'> İltica talebinde bulundunuz mu?</div>
-                    <FormControl>
-                      <FormLabel component='legend'></FormLabel>
-                      <RadioGroup
-                        row
-                        name='isRefugeeClaimed'
-                        value={isRefugeeClaimed}
-                        onChange={handleChange}>
-                        <FormControlLabel
-                          value={true}
-                          control={<Radio />}
-                          label='Evet'
-                        />
-                        <FormControlLabel
-                          value={false}
-                          control={<Radio />}
-                          label='Hayır'
-                        />
-                      </RadioGroup>
-                    </FormControl>
+
+                    <RadioGroup
+                      row
+                      name='isRefugeeClaimed'
+                      value={isRefugeeClaimed}
+                      onChange={handleChange}>
+                      <FormControlLabel
+                        value={true}
+                        control={<Radio />}
+                        label='Evet'
+                      />
+                      <FormControlLabel
+                        value={false}
+                        control={<Radio />}
+                        label='Hayır'
+                      />
+                    </RadioGroup>
                   </div>
 
                   <div className='multi-date'>
@@ -385,7 +385,7 @@ function Home() {
                       className='date-picker'
                       margin='normal'
                       id='date-picker-dialog'
-                      label='Mahkemeyi geçiş tarihi'
+                      label='Mahkeme geçiş tarihi'
                       format='dd-MM-yyyy'
                       value={protectedPersonDate}
                       helperText='Karar metnindeki tarih'
@@ -429,35 +429,32 @@ function Home() {
                 <section className='box'>
                   <div className='box-radio'>
                     <div className='text'>
-                      Giriş tarihinden sonra yurt dışına çıktınız mı?
+                      Kanada'dan yurt dışına çıktınız mı?
                     </div>
-                    <div className='section'>
-                      <FormControl component='fieldset' className='form-item'>
-                        <RadioGroup
-                          row
-                          name='istraveledAbroad'
-                          value={istraveledAbroad}
-                          onChange={handleChange}>
-                          <FormControlLabel
-                            value={true}
-                            control={<Radio />}
-                            label='Evet'
-                          />
-                          <FormControlLabel
-                            value={false}
-                            control={<Radio />}
-                            label='Hayır'
-                          />
-                        </RadioGroup>
-                      </FormControl>
-                    </div>
+
+                    <RadioGroup
+                      row
+                      name='istraveledAbroad'
+                      value={istraveledAbroad}
+                      onChange={handleChange}>
+                      <FormControlLabel
+                        value={true}
+                        control={<Radio />}
+                        label='Evet'
+                      />
+                      <FormControlLabel
+                        value={false}
+                        control={<Radio />}
+                        label='Hayır'
+                      />
+                    </RadioGroup>
                   </div>
 
                   <div>
                     {travelDates.map((item, index) => (
                       <div key={index} className='multi-date-with-button'>
                         <Button
-                          className='icon'
+                          className='icon left-sil-button'
                           variant='outlined'
                           disabled={!data.istraveledAbroad}
                           onClick={() => removeTravel(index)}>
@@ -518,6 +515,17 @@ function Home() {
                             }
                           }}
                         />
+                        <Button
+                          className='icon right-sil-button'
+                          variant='outlined'
+                          disabled={!data.istraveledAbroad}
+                          onClick={() => removeTravel(index)}>
+                          <RemoveCircleIcon
+                            color='secondary'
+                            style={{ paddingTop: '5px' }}
+                          />
+                          SİL
+                        </Button>
                       </div>
                     ))}
                     <Box style={{ textAlign: 'center', marginBottom: '20px' }}>
@@ -540,7 +548,7 @@ function Home() {
                   display: 'flex',
                 }}>
                 <Button
-                  style={{ marginRight: '10px', fontSize: '1.5rem' }}
+                  style={{ marginRight: '10px', fontSize: '1.3rem' }}
                   variant='contained'
                   color='secondary'
                   onClick={() => {
@@ -567,7 +575,7 @@ function Home() {
                   Formu Temİzle
                 </Button>
                 <Button
-                  style={{ marginLeft: '10px', fontSize: '1.5rem' }}
+                  style={{ marginLeft: '10px', fontSize: '1.3rem' }}
                   variant='contained'
                   color='primary'
                   className='btn-hesapla'

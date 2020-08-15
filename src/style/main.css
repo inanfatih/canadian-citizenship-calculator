@@ -1,3 +1,440 @@
+@media (max-width: 1280px) {
+  #home {
+    grid-template-columns: 300px auto 250px !important; }
+    #home .ad-container .ad-description .text-web {
+      font-size: 1.5rem !important; }
+    #home .ad-container .ad-description .hosting {
+      font-size: 2.7rem !important; }
+    #home .ad-container .ad-description .phoneNumber {
+      font-size: 2.6rem !important;
+      border-bottom: none; }
+    #home .ad-container .item {
+      width: 83px !important; }
+    #home .ad-container-2 {
+      background: #222649; }
+    #home .box {
+      border: 2px #767676 solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%; }
+      #home .box .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .box-date {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .text {
+        font-size: 1.5rem;
+        text-align: left;
+        color: #222649;
+        margin: 10px;
+        margin-left: 10px !important; }
+      #home .box .multi-date {
+        text-align: right;
+        padding-right: 5px !important;
+        margin-bottom: 10px; }
+        #home .box .multi-date .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -15px; }
+      #home .box .multi-date-with-button {
+        text-align: right;
+        padding-right: 5px !important; }
+        #home .box .multi-date-with-button .date-picker {
+          width: 168px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -15px; }
+    #home .single-date {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #home .single-date .date-picker {
+        width: 180px !important;
+        height: 100px;
+        margin: 5px 10px;
+        margin-top: 20px;
+        margin-bottom: -15px; }
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column; }
+    .result-container .result-text-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      background: #f50057; }
+      .result-container .result-text-container .result-text {
+        font-size: 3rem; } }
+
+@media (max-width: 1023px) {
+  .back-button {
+    margin-right: 10px; }
+  #home {
+    grid-template-columns: 300px auto !important; }
+    #home .ad-container .ad-description .text-web {
+      font-size: 1.5rem !important; }
+    #home .ad-container .ad-description .hosting {
+      font-size: 2.7rem !important; }
+    #home .ad-container .ad-description .phoneNumber {
+      font-size: 2.6rem !important;
+      border-bottom: none; }
+    #home .ad-container .item {
+      width: 83px !important; }
+    #home .ad-container-2 {
+      background: #222649; }
+    #home .box {
+      border: 2px #767676 solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
+      #home .box .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .box-date {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .text {
+        font-size: 1.5rem;
+        text-align: left;
+        color: #222649;
+        margin: 10px;
+        margin-left: 10px !important; }
+      #home .box .multi-date {
+        text-align: right;
+        padding-right: 5px !important;
+        margin-bottom: 10px; }
+        #home .box .multi-date .date-picker {
+          width: 180px !important;
+          height: 100px;
+          margin: 5px 10px;
+          margin-bottom: -15px; }
+      #home .box .multi-date-with-button {
+        display: flex;
+        flex-direction: column;
+        border: 2px #767676 solid;
+        border-radius: 5px;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        padding-right: 5px !important; }
+        #home .box .multi-date-with-button .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -35px !important; }
+        #home .box .multi-date-with-button .left-sil-button {
+          display: none; }
+        #home .box .multi-date-with-button .right-sil-button {
+          display: block;
+          margin-bottom: 5px; }
+    #home .single-date {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #home .single-date .date-picker {
+        width: 170px !important;
+        height: 100px;
+        margin: 5px !important;
+        margin-top: 20px;
+        margin-bottom: -15px; }
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column; }
+    .result-container .result-text-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      margin-right: 10px;
+      background: #f50057; }
+      .result-container .result-text-container .result-text {
+        font-size: 3rem; } }
+
+@media (max-width: 760px) {
+  .back-button {
+    margin-left: 10px;
+    margin-bottom: 10px; }
+  body {
+    margin-bottom: 0 !important; }
+  #home {
+    grid-template-columns: auto !important; }
+    #home .ad-container .ad-description {
+      padding: 0 !important; }
+      #home .ad-container .ad-description .text-web {
+        font-size: 2rem !important; }
+      #home .ad-container .ad-description .hosting {
+        font-size: 4rem !important; }
+      #home .ad-container .ad-description .phoneNumber {
+        font-size: 2rem;
+        padding-bottom: 10px;
+        border-bottom: none !important;
+        color: white;
+        text-align: center; }
+    #home .ad-container .ad-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      #home .ad-container .ad-box .text {
+        text-align: center;
+        font-size: 1rem; }
+    #home .ad-container .item {
+      display: none; }
+    #home .ad-container-2 {
+      background: #222649;
+      border-radius: 5px;
+      margin: 0 10px; }
+    #home .box {
+      border: 2px #767676 solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
+      #home .box .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .box-date {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .text {
+        font-size: 1.5rem;
+        text-align: left;
+        color: #222649;
+        margin: 10px;
+        margin-left: 10px !important; }
+      #home .box .multi-date {
+        text-align: right;
+        padding-right: 20px;
+        margin-bottom: 10px; }
+        #home .box .multi-date .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -15px; }
+      #home .box .multi-date-with-button {
+        display: flex;
+        flex-direction: column;
+        border: 2px #767676 solid;
+        border-radius: 5px;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        padding-right: 5px !important; }
+        #home .box .multi-date-with-button .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -35px !important; }
+        #home .box .multi-date-with-button .left-sil-button {
+          display: none; }
+        #home .box .multi-date-with-button .right-sil-button {
+          display: block;
+          margin-bottom: 5px; }
+    #home .single-date {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #home .single-date .date-picker {
+        width: 170px !important;
+        height: 100px;
+        margin: 5px !important;
+        margin-top: 20px;
+        margin-bottom: -15px; }
+    #home .icon {
+      margin-top: 20px;
+      margin-bottom: 3px; }
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column; }
+    .result-container .result-text-container {
+      margin-left: 10px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      background: #f50057; }
+      .result-container .result-text-container .result-text {
+        font-size: 3rem; }
+  #navbar {
+    min-height: 90px !important; }
+    #navbar .navbar-container .icon {
+      margin-top: 5px !important;
+      width: 80px !important;
+      height: 80px !important; }
+    #navbar .navbar-container .title {
+      font-size: 2rem !important; }
+  #footer {
+    display: none; } }
+
+@media (max-width: 600px) {
+  #home {
+    grid-template-columns: auto !important; }
+    #home .ad-container .ad-description {
+      padding: 0 !important; }
+      #home .ad-container .ad-description .text-web {
+        font-size: 2rem !important; }
+      #home .ad-container .ad-description .hosting {
+        font-size: 3.5rem !important; }
+      #home .ad-container .ad-description .phoneNumber {
+        font-size: 2rem;
+        padding-bottom: 10px;
+        border-bottom: none !important;
+        color: white;
+        text-align: center; }
+    #home .ad-container .ad-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      #home .ad-container .ad-box .text {
+        text-align: center;
+        font-size: 1rem; }
+    #home .ad-container .item {
+      display: none; }
+    #home .ad-container-2 {
+      background: #222649;
+      border-radius: 5px;
+      margin: 0 10px; }
+    #home .box {
+      border: 2px #767676 solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
+      #home .box .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+        flex-direction: column; }
+      #home .box .box-date {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important; }
+      #home .box .text {
+        text-align: center !important; }
+      #home .box .single-date {
+        display: flex;
+        margin-top: -20px; }
+        #home .box .single-date .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-top: 20px;
+          margin-bottom: -35px !important; }
+      #home .box .multi-date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-right: 20px;
+        margin-bottom: 10px; }
+        #home .box .multi-date .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -30px !important; }
+      #home .box .multi-date-with-button {
+        display: flex;
+        flex-direction: column;
+        border: 2px #767676 solid;
+        border-radius: 5px;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        padding-right: 5px !important; }
+        #home .box .multi-date-with-button .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -35px !important; }
+        #home .box .multi-date-with-button .left-sil-button {
+          display: none; }
+        #home .box .multi-date-with-button .right-sil-button {
+          display: block;
+          margin-bottom: 5px; }
+    #home .icon {
+      margin-top: 20px;
+      margin-bottom: 3px; }
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column; }
+    .result-container .result-text-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      background: #f50057; }
+      .result-container .result-text-container .result-text {
+        font-size: 3rem; } }
+
 html {
   --navbar-height: 125px;
   --footer-height: 60px; }
@@ -30,11 +467,12 @@ body {
   height: 3rem;
   width: 100%; }
 
+.back-button {
+  margin-top: 10px; }
+
 #navbar {
-  height: var(--navbar-height);
+  min-height: var(--navbar-height);
   margin: auto;
-  display: block;
-  position: relative;
   background: url("../images/ust.jpg") no-repeat center center/cover;
   margin-bottom: 10px; }
   #navbar .navbar-container {
@@ -47,13 +485,12 @@ body {
     text-align: center; }
     #navbar .navbar-container .icon {
       width: 120px;
-      margin-right: 25px;
+      margin-right: 5px;
       height: 120px;
       background: url("../images/flag.png") no-repeat center center/cover; }
     #navbar .navbar-container .title {
       font-size: 3rem;
       text-align: center;
-      line-height: 19px;
       color: White;
       font-family: 'Oswald', sans-serif; }
 
@@ -92,12 +529,10 @@ body {
         font-size: 3.2rem;
         color: #f5d18f;
         font-family: 'Shadows Into Light', cursive; }
-      #home .ad-container .ad-description .phoneNumber {
-        font-size: 3rem !important; }
       #home .ad-container .ad-description .text {
         overflow-wrap: break-word; }
       #home .ad-container .ad-description .phoneNumber {
-        font-size: 2rem;
+        font-size: 3rem;
         padding-bottom: 10px;
         border-bottom: 2px solid #222649;
         color: white;
@@ -117,47 +552,7 @@ body {
   #home .ad-container-2 {
     background: #222649;
     border-radius: 5px;
-    margin: 0 10px;
-    color: white; }
-    #home .ad-container-2 .ad-description {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      margin: 10px;
-      border-radius: 5px;
-      padding: 5px;
-      flex-wrap: wrap; }
-      #home .ad-container-2 .ad-description .text-web {
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 10px 0; }
-        #home .ad-container-2 .ad-description .text-web .price {
-          color: #f5d18f;
-          font-weight: 800;
-          font-size: 3rem; }
-      #home .ad-container-2 .ad-description .hosting {
-        font-size: 3rem;
-        color: #f5d18f;
-        font-family: 'Shadows Into Light', cursive; }
-      #home .ad-container-2 .ad-description .text {
-        overflow-wrap: break-word; }
-      #home .ad-container-2 .ad-description .phoneNumber {
-        font-size: 2rem;
-        color: white;
-        text-align: center; }
-    #home .ad-container-2 .ad-box {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap; }
-      #home .ad-container-2 .ad-box .text {
-        text-align: center;
-        font-size: 1rem; }
-    #home .ad-container-2 .item {
-      width: 80px;
-      flex-basis: auto;
-      flex-grow: 1;
-      margin: 5px; }
+    margin: 0 10px; }
   #home .box {
     border: 2px #767676 solid;
     border-radius: 5px;
@@ -200,6 +595,8 @@ body {
         height: 100px;
         margin: 5px 10px;
         margin-bottom: -15px; }
+    #home .box .right-sil-button {
+      display: none; }
   #home .single-date {
     display: flex;
     justify-content: center;
@@ -218,7 +615,6 @@ body {
   margin: auto;
   display: flex;
   justify-content: center;
-  border-radius: 5px;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -226,6 +622,7 @@ body {
   overflow: hidden;
   flex-direction: column; }
   .result-container .result-text-container {
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     flex-direction: column;

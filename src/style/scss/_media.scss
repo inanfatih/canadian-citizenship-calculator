@@ -1,4 +1,628 @@
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
+  #home {
+    grid-template-columns: 300px auto 250px !important;
 
-  
+    .ad-container {
+      .ad-description {
+        .text-web {
+          font-size: 1.5rem !important;
+        }
+
+        .hosting {
+          font-size: 2.7rem !important;
+        }
+        .phoneNumber {
+          font-size: 2.6rem !important;
+          border-bottom: none;
+        }
+      }
+
+      .item {
+        width: 83px !important;
+      }
+    }
+
+    .ad-container-2 {
+      background: #222649;
+    }
+
+    .box {
+      border: 2px rgb(118, 118, 118) solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+
+      .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .box-date {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .text {
+        font-size: 1.5rem;
+        text-align: left;
+        color: #222649;
+        margin: 10px;
+        margin-left: 10px !important;
+      }
+
+      .multi-date {
+        text-align: right;
+        padding-right: 5px !important;
+        margin-bottom: 10px;
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -15px;
+        }
+      }
+
+      .multi-date-with-button {
+        text-align: right;
+        padding-right: 5px !important;
+        .date-picker {
+          width: 168px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -15px;
+        }
+      }
+    }
+
+    .single-date {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .date-picker {
+        width: 180px !important;
+        height: 100px;
+        margin: 5px 10px;
+        margin-top: 20px;
+        margin-bottom: -15px;
+      }
+    }
+  }
+
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column;
+
+    .result-text-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      background: #f50057;
+
+      .result-text {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .back-button {
+    margin-right: 10px;
+  }
+  #home {
+    grid-template-columns: 300px auto !important;
+
+    .ad-container {
+      .ad-description {
+        .text-web {
+          font-size: 1.5rem !important;
+        }
+
+        .hosting {
+          font-size: 2.7rem !important;
+        }
+        .phoneNumber {
+          font-size: 2.6rem !important;
+          border-bottom: none;
+        }
+      }
+
+      .item {
+        width: 83px !important;
+      }
+    }
+
+    .ad-container-2 {
+      background: #222649;
+    }
+
+    .box {
+      border: 2px rgb(118, 118, 118) solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .box-date {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .text {
+        font-size: 1.5rem;
+        text-align: left;
+        color: #222649;
+        margin: 10px;
+        margin-left: 10px !important;
+      }
+
+      .multi-date {
+        text-align: right;
+        padding-right: 5px !important;
+        margin-bottom: 10px;
+        .date-picker {
+          width: 180px !important;
+          height: 100px;
+          margin: 5px 10px;
+          margin-bottom: -15px;
+        }
+      }
+
+      .multi-date-with-button {
+        display: flex;
+        flex-direction: column;
+        border: 2px rgb(118, 118, 118) solid;
+        border-radius: 5px;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        padding-right: 5px !important;
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -35px !important;
+        }
+
+        .left-sil-button {
+          display: none;
+        }
+        .right-sil-button {
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .single-date {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .date-picker {
+        width: 170px !important;
+        height: 100px;
+        margin: 5px !important;
+        margin-top: 20px;
+        margin-bottom: -15px;
+      }
+    }
+  }
+
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column;
+
+    .result-text-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      margin-right: 10px;
+      background: #f50057;
+
+      .result-text {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .back-button {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  body {
+    margin-bottom: 0 !important;
+  }
+
+  #home {
+    grid-template-columns: auto !important;
+
+    .ad-container {
+      .ad-description {
+        padding: 0 !important;
+
+        .text-web {
+          font-size: 2rem !important;
+        }
+
+        .hosting {
+          font-size: 4rem !important;
+        }
+
+        .phoneNumber {
+          font-size: 2rem;
+          padding-bottom: 10px;
+          border-bottom: none !important;
+          color: white;
+          text-align: center;
+        }
+      }
+
+      .ad-box {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .text {
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+      .item {
+        display: none;
+      }
+    }
+
+    .ad-container-2 {
+      background: #222649;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .box {
+      border: 2px rgb(118, 118, 118) solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .box-date {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .text {
+        font-size: 1.5rem;
+        text-align: left;
+        color: #222649;
+        margin: 10px;
+        margin-left: 10px !important;
+      }
+
+      .multi-date {
+        text-align: right;
+        padding-right: 20px;
+        margin-bottom: 10px;
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -15px;
+        }
+      }
+
+      .multi-date-with-button {
+        display: flex;
+        flex-direction: column;
+        border: 2px rgb(118, 118, 118) solid;
+        border-radius: 5px;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        padding-right: 5px !important;
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -35px !important;
+        }
+
+        .left-sil-button {
+          display: none;
+        }
+        .right-sil-button {
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .single-date {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .date-picker {
+        width: 170px !important;
+        height: 100px;
+        margin: 5px !important;
+        margin-top: 20px;
+        margin-bottom: -15px;
+      }
+    }
+
+    .icon {
+      margin-top: 20px;
+      margin-bottom: 3px;
+    }
+  }
+
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column;
+
+    .result-text-container {
+      margin-left: 10px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      background: #f50057;
+
+      .result-text {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  #navbar {
+    min-height: 90px !important;
+
+    .navbar-container {
+      .icon {
+        margin-top: 5px !important;
+        width: 80px !important;
+
+        height: 80px !important;
+      }
+      .title {
+        font-size: 2rem !important;
+      }
+    }
+  }
+
+  #footer {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #home {
+    grid-template-columns: auto !important;
+
+    .ad-container {
+      .ad-description {
+        padding: 0 !important;
+
+        .text-web {
+          font-size: 2rem !important;
+        }
+
+        .hosting {
+          font-size: 3.5rem !important;
+        }
+
+        .phoneNumber {
+          font-size: 2rem;
+          padding-bottom: 10px;
+          border-bottom: none !important;
+          color: white;
+          text-align: center;
+        }
+      }
+
+      .ad-box {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .text {
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+      .item {
+        display: none;
+      }
+    }
+
+    .ad-container-2 {
+      background: #222649;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .box {
+      border: 2px rgb(118, 118, 118) solid;
+      border-radius: 5px;
+      margin: 10px 10px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .box-radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+        flex-direction: column;
+      }
+
+      .box-date {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding-right: 5px !important;
+      }
+
+      .text {
+        text-align: center !important;
+        // margin: 0 !important;
+      }
+
+      .single-date {
+        display: flex;
+        margin-top: -20px;
+
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-top: 20px;
+          margin-bottom: -35px !important;
+        }
+      }
+      .multi-date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-right: 20px;
+        margin-bottom: 10px;
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -30px !important;
+        }
+      }
+
+      .multi-date-with-button {
+        display: flex;
+        flex-direction: column;
+        border: 2px rgb(118, 118, 118) solid;
+        border-radius: 5px;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        padding-right: 5px !important;
+        .date-picker {
+          width: 170px !important;
+          height: 100px;
+          margin: 5px !important;
+          margin-bottom: -35px !important;
+        }
+
+        .left-sil-button {
+          display: none;
+        }
+        .right-sil-button {
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .icon {
+      margin-top: 20px;
+      margin-bottom: 3px;
+    }
+  }
+
+  .result-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    flex-direction: column;
+
+    .result-text-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      background: #f50057;
+
+      .result-text {
+        font-size: 3rem;
+      }
+    }
+  }
 }
