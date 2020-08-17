@@ -41,7 +41,7 @@ function Home() {
     remainingDays: 1095,
   });
 
-  const [isCalculated, setIsCalculated] = useState(true);
+  const [isCalculated, setIsCalculated] = useState(false);
 
   const {
     entryDate,
@@ -53,7 +53,7 @@ function Home() {
     travelDates,
     citizenshipDate,
     passedDays,
-    remainingDays,
+    // remainingDays,
   } = data;
 
   const handleChange = (e) => {
@@ -221,7 +221,12 @@ function Home() {
             <div className='hosting'>Yıllık Hosting: $0</div>
             {/* <div>Yıllık Hosting: $0</div> */}
 
-            <div className='phoneNumber'>(416) 688-9555</div>
+            <a href='mailto:info@vatandaslik.ca' className='email'>
+              info@vatandaslik.ca
+            </a>
+            <a href='tel:4166889555' className='phoneNumber'>
+              (416) 688-9555
+            </a>
           </div>
 
           <div className='ad-box'>
@@ -314,6 +319,7 @@ function Home() {
                         required
                         autoOk
                         disableFuture
+                        helperText='Gün-Ay-Yıl'
                         className='date-picker'
                         margin='normal'
                         id='date-picker-dialog'
@@ -366,7 +372,7 @@ function Home() {
                       label='İltica tarihi'
                       format='dd-MM-yyyy'
                       value={refugeeClaimDate}
-                      helperText='Sarı kağıt üzerinde yazan tarih'
+                      helperText='Sarı kağıtta yazan tarih'
                       onChange={(date) => {
                         if (date !== null) {
                           setData({
@@ -592,7 +598,26 @@ function Home() {
             </form>
           </div>
         )}
-        <section className='ad-container-2'></section>
+        <section className='ad-container-2'>
+          <img
+            src={require('../images/airCanada.jpeg')}
+            className='ad-image'
+            alt='ad 1'
+          />
+          <img
+            src={require('../images/Canadian_Tire_Logo.svg')}
+            className='ad-image'
+            alt='ad 2'
+          />
+          <img
+            src={require('../images/istikbal.jpeg')}
+            className='ad-image'
+            alt='ad 3'
+          />
+          <div className='ad1'></div>
+          <div className='ad2'></div>
+          <div className='ad3'></div>
+        </section>
       </div>
     </MuiPickersUtilsProvider>
   );

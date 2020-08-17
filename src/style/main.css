@@ -5,6 +5,8 @@
       font-size: 1.5rem !important; }
     #home .ad-container .ad-description .hosting {
       font-size: 2.7rem !important; }
+    #home .ad-container .ad-description .email {
+      font-size: 2rem !important; }
     #home .ad-container .ad-description .phoneNumber {
       font-size: 2.6rem !important;
       border-bottom: none; }
@@ -99,7 +101,7 @@
     #home .ad-container .item {
       width: 83px !important; }
     #home .ad-container-2 {
-      background: #222649; }
+      display: none !important; }
     #home .box {
       border: 2px #767676 solid;
       border-radius: 5px;
@@ -217,6 +219,7 @@
       display: none; }
     #home .ad-container-2 {
       background: #222649;
+      display: block !important;
       border-radius: 5px;
       margin: 0 10px; }
     #home .box {
@@ -282,8 +285,8 @@
         width: 170px !important;
         height: 100px;
         margin: 5px !important;
-        margin-top: 20px;
-        margin-bottom: -15px; }
+        margin-top: 10px !important;
+        margin-bottom: -25px !important; }
     #home .icon {
       margin-top: 20px;
       margin-bottom: 3px; }
@@ -311,7 +314,6 @@
   #navbar {
     min-height: 90px !important; }
     #navbar .navbar-container .icon {
-      margin-top: 5px !important;
       width: 80px !important;
       height: 80px !important; }
     #navbar .navbar-container .title {
@@ -374,13 +376,13 @@
         text-align: center !important; }
       #home .box .single-date {
         display: flex;
-        margin-top: -20px; }
+        margin-top: -15px; }
         #home .box .single-date .date-picker {
           width: 170px !important;
           height: 100px;
           margin: 5px !important;
           margin-top: 20px;
-          margin-bottom: -35px !important; }
+          margin-bottom: -30px !important; }
       #home .box .multi-date {
         display: flex;
         flex-direction: column;
@@ -485,7 +487,7 @@ body {
     text-align: center; }
     #navbar .navbar-container .icon {
       width: 120px;
-      margin-right: 5px;
+      margin: 5px;
       height: 120px;
       background: url("../images/flag.png") no-repeat center center/cover; }
     #navbar .navbar-container .title {
@@ -531,6 +533,8 @@ body {
         font-family: 'Shadows Into Light', cursive; }
       #home .ad-container .ad-description .text {
         overflow-wrap: break-word; }
+      #home .ad-container .ad-description .email {
+        font-size: 2.3rem; }
       #home .ad-container .ad-description .phoneNumber {
         font-size: 3rem;
         padding-bottom: 10px;
@@ -552,7 +556,14 @@ body {
   #home .ad-container-2 {
     background: #222649;
     border-radius: 5px;
-    margin: 0 10px; }
+    margin: 0 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; }
+    #home .ad-container-2 .ad-image {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 5px; }
   #home .box {
     border: 2px #767676 solid;
     border-radius: 5px;
