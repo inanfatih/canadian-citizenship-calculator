@@ -25,11 +25,6 @@ function Home() {
     protectedPersonDate: null,
     prDate: null,
     istraveledAbroad: true,
-    // entryDate: '2016-08-30',
-    // refugeeClaimDate: '2016-11-08',
-    // protectedPersonDate: '2017-03-01',
-    // prDate: '2018-10-23',
-    // istraveledAbroad: false,
     travelDates: [
       {
         exit: null,
@@ -115,6 +110,27 @@ function Home() {
 
     console.log('data', data);
 
+    if (entryDate > today) {
+      window.alert("Kanada'ya giriş tarihi bugünün tarihinden sonra olamaz");
+      return;
+    }
+
+    if (prDate > today) {
+      window.alert(
+        'UYARI: PR tarihine gelecek bir tarih girdiniz. Hesaplama buna göre yapılacak',
+      );
+    }
+    // else if (isRefugeeClaimed && refugeeClaimDate > today) {
+    //   window.alert('İltica tarihi bugünün tarihinden sonra olamaz');
+    //   return;
+    // } else if (isRefugeeClaimed && protectedPersonDate > today) {
+    //   window.alert('Mahkemeyi geçme tarihi bugünün tarihinden sonra olamaz');
+    //   return;
+    // } else if (prDate > today) {
+    //   window.alert('PR tarihi bugünün tarihinden sonra olamaz');
+    //   return;
+    // }
+
     if (isRefugeeClaimed && compareDates(entryDate, refugeeClaimDate)) {
       window.alert("Kanada'ya giriş tarihi iltica tarihinden sonra olamaz");
       return;
@@ -167,6 +183,10 @@ function Home() {
 
     let totalDays = 0;
 
+    console.log('today before', today);
+    today = moment(prDate) > today ? moment(prDate) : today;
+    console.log('today after', today);
+
     if (isRefugeeClaimed) {
       totalDays =
         ((difference(refugeeClaimDate, entryDate) +
@@ -199,7 +219,7 @@ function Home() {
     let remainedDays = 1095 - (totalDays > 1095 ? 1095 : totalDays);
     setData({
       ...data,
-      citizenshipDate: moment()
+      citizenshipDate: today
         .add(1095 - Math.floor(totalDays), 'd')
         .format('DD-MM-YYYY'),
       passedDays: totalDays,
@@ -285,9 +305,14 @@ function Home() {
         {isCalculated ? (
           <div className='result-container'>
             <div className='result-text-container'>
-              <div className='result-text'>Geçen Gün:</div>
+              <div className='result-text'>
+                {moment(prDate) > moment() && moment(prDate) > moment()
+                  ? `${moment(prDate).format('DD-MM-YYYY')} itibariyle`
+                  : null}
+              </div>
+              <div className='result-text'>Geçen gün:</div>
               <div className='result-text'>{passedDays}</div>
-              <div className='result-text'>Kalan Gün:</div>
+              <div className='result-text'>Kalan gün:</div>
               <div className='result-text'>
                 {1095 - (passedDays > 1095 ? 1095 : passedDays)}
               </div>
@@ -372,7 +397,7 @@ function Home() {
                       autoOk
                       required={data.isRefugeeClaimed}
                       disabled={!data.isRefugeeClaimed}
-                      disableFuture
+                      // disableFuture
                       margin='normal'
                       id='date-picker-dialog'
                       label='İltica tarihi'
@@ -393,7 +418,7 @@ function Home() {
                       autoOk
                       required={data.isRefugeeClaimed}
                       disabled={!data.isRefugeeClaimed}
-                      disableFuture
+                      // disableFuture
                       className='date-picker'
                       margin='normal'
                       id='date-picker-dialog'
@@ -420,7 +445,7 @@ function Home() {
                         autoOk
                         className='date-picker'
                         margin='normal'
-                        disableFuture
+                        // disableFuture
                         id='date-picker-dialog'
                         label='PR tarihi'
                         format='dd-MM-yyyy'
@@ -476,7 +501,7 @@ function Home() {
                         <KeyboardDatePicker
                           className='date-picker'
                           autoOk
-                          disableFuture
+                          // disableFuture
                           margin='normal'
                           id='date-picker-dialog'
                           label='Çıkış tarihi'
@@ -503,7 +528,7 @@ function Home() {
                         <KeyboardDatePicker
                           autoOk
                           className='date-picker'
-                          disableFuture
+                          // disableFuture
                           margin='normal'
                           required={data.istraveledAbroad}
                           disabled={!data.istraveledAbroad}
@@ -605,14 +630,20 @@ function Home() {
           </div>
         )}
         <section className='ad-container-2'>
-          <a href='tuliptranslations.ca'>
+          <a
+            href='http://tuliptranslations.ca/'
+            target='_blank'
+            rel='noopener noreferrer'>
             <img
               src={require('../images/airCanada.jpeg')}
               className='ad-image'
               alt='ad 1'
             />
           </a>
-          <a href='tuliptranslations.ca'>
+          <a
+            href='http://tuliptranslations.ca/'
+            target='_blank'
+            rel='noopener noreferrer'>
             <img
               src={require('../images/tercuman.png')}
               className='ad-image'
@@ -620,7 +651,10 @@ function Home() {
             />
           </a>
 
-          <a href='tuliptranslations.ca'>
+          <a
+            href='http://tuliptranslations.ca/'
+            target='_blank'
+            rel='noopener noreferrer'>
             <img
               src={require('../images/istikbal.jpeg')}
               className='ad-image'

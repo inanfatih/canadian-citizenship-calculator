@@ -502,7 +502,7 @@ a:active {
     border-radius: 5px;
     margin: 0; }
   #home .ad-container {
-    background: #af1038;
+    background: #222649;
     border-radius: 5px;
     margin: 0 10px;
     color: white;
@@ -550,7 +550,7 @@ a:active {
       flex-grow: 1;
       margin: 15px 5px; }
   #home .ad-container-2 {
-    background: #222649;
+    background: #af1038;
     border-radius: 5px;
     margin: 0 10px;
     padding: 10px 10px 0;
