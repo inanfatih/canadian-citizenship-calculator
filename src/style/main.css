@@ -8,7 +8,7 @@
     #home .ad-container .ad-description .email {
       font-size: 2rem !important; }
     #home .ad-container .ad-description .phoneNumber {
-      font-size: 2.6rem !important;
+      font-size: 2rem !important;
       border-bottom: none; }
     #home .ad-container .item {
       width: 83px !important; }
@@ -458,9 +458,6 @@ a:active {
   text-decoration: none;
   color: inherit; }
 
-body {
-  margin-bottom: var(--footer-height); }
-
 .center-container {
   padding-right: 10px;
   overflow: hidden; }
@@ -515,12 +512,12 @@ body {
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      margin: 10px;
+      margin: 0 10px 10px;
       border-radius: 5px;
       padding: 5px;
       flex-wrap: wrap; }
       #home .ad-container .ad-description .text-web {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         text-align: center;
         margin: 10px 0; }
         #home .ad-container .ad-description .text-web .price {
@@ -534,11 +531,10 @@ body {
       #home .ad-container .ad-description .text {
         overflow-wrap: break-word; }
       #home .ad-container .ad-description .email {
-        font-size: 2.3rem; }
+        font-size: 2rem; }
       #home .ad-container .ad-description .phoneNumber {
-        font-size: 3rem;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #222649;
+        font-size: 2rem;
+        padding-bottom: 5px;
         color: white;
         text-align: center; }
     #home .ad-container .ad-box {
@@ -552,18 +548,18 @@ body {
       width: 100px;
       flex-basis: auto;
       flex-grow: 1;
-      margin: 10px 5px; }
+      margin: 15px 5px; }
   #home .ad-container-2 {
     background: #222649;
     border-radius: 5px;
     margin: 0 10px;
-    padding: 10px;
+    padding: 10px 10px 0;
     display: flex;
     flex-direction: column; }
     #home .ad-container-2 .ad-image {
       width: 100%;
       border-radius: 5px;
-      margin-bottom: 5px; }
+      margin-bottom: 10px; }
   #home .box {
     border: 2px #767676 solid;
     border-radius: 5px;
@@ -643,11 +639,15 @@ body {
       font-size: 3rem; }
 
 #footer {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
   margin-bottom: 0px;
   height: var(--footer-height);
   width: 100%;
   background: url("../images/footer.jpg") no-repeat center center/cover; }
+
+#contact-me {
+  background: #222649;
+  color: white;
+  margin-top: 10px;
+  text-align: center;
+  padding: 5px;
+  font-size: 0.9rem; }

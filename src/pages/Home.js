@@ -106,40 +106,52 @@ function Home() {
     }
   };
 
+  const compareDates = (date1, date2) => {
+    return moment(date1) > moment(date2) ? true : false;
+  };
+
   const calculateCitizenshipDate = (event) => {
     event.preventDefault();
 
-    if (isRefugeeClaimed && entryDate > refugeeClaimDate) {
+    console.log('data', data);
+
+    if (isRefugeeClaimed && compareDates(entryDate, refugeeClaimDate)) {
       window.alert("Kanada'ya giriş tarihi iltica tarihinden sonra olamaz");
       return;
-    } else if (isRefugeeClaimed && entryDate > protectedPersonDate) {
+    } else if (
+      isRefugeeClaimed &&
+      compareDates(entryDate, protectedPersonDate)
+    ) {
       window.alert(
         "Kanada'ya giriş tarihi mahkeme geçme tarihinden sonra olamaz",
       );
       return;
-    } else if (isRefugeeClaimed && refugeeClaimDate > protectedPersonDate) {
+    } else if (
+      isRefugeeClaimed &&
+      compareDates(refugeeClaimDate, protectedPersonDate)
+    ) {
       window.alert('İltica tarihi mahkeme geçme tarihinden sonra olamaz');
       return;
-    } else if (isRefugeeClaimed && protectedPersonDate > prDate) {
+    } else if (isRefugeeClaimed && compareDates(protectedPersonDate, prDate)) {
       window.alert('Mahkemeyi geçme tarihi PR tarihinden sonra olamaz');
       return;
-    } else if (isRefugeeClaimed && refugeeClaimDate > prDate) {
+    } else if (isRefugeeClaimed && compareDates(refugeeClaimDate, prDate)) {
       window.alert('Refugee claim tarihi PR tarihinden sonra olamaz');
       return;
-    } else if (entryDate > prDate) {
+    } else if (compareDates(entryDate, prDate)) {
       window.alert("Kanada'ya giriş tarihi PR tarihinden sonra olamaz");
       return;
     } else if (istraveledAbroad) {
       let isFailed = false;
       data.travelDates.forEach((item, index) => {
-        if (item.exit < entryDate) {
+        if (compareDates(entryDate, item.exit)) {
           window.alert(
             index +
               1 +
               ". sıradaki seyahatteki çıkış tarihi Kanada'ya giriş tarihinden sonra olmalı",
           );
           isFailed = true;
-        } else if (item.entry < item.exit) {
+        } else if (compareDates(item.exit, item.entry)) {
           window.alert(
             index +
               1 +
@@ -194,18 +206,12 @@ function Home() {
       remainingDays: remainedDays,
     });
 
-    console.log('minusTraveledDays', minusTraveledDays);
-    console.log('totaldays', totalDays);
-    console.log('data', data);
-    console.log('remainedDays', remainedDays);
+    // console.log('minusTraveledDays', minusTraveledDays);
+    // console.log('totaldays', totalDays);
+    // console.log('data', data);
+    // console.log('remainedDays', remainedDays);
 
     setIsCalculated(true);
-    // let remainingDaysPixels = (remainedDays / 1095) * 500;
-
-    // document.documentElement.style.setProperty(
-    //   '--filled-box',
-    //   remainingDaysPixels + 'px',
-    // );
   };
 
   return (
@@ -599,26 +605,54 @@ function Home() {
           </div>
         )}
         <section className='ad-container-2'>
-          <img
-            src={require('../images/airCanada.jpeg')}
-            className='ad-image'
-            alt='ad 1'
-          />
-          <img
-            src={require('../images/Canadian_Tire_Logo.svg')}
-            className='ad-image'
-            alt='ad 2'
-          />
-          <img
-            src={require('../images/istikbal.jpeg')}
-            className='ad-image'
-            alt='ad 3'
-          />
+          <a href='tuliptranslations.ca'>
+            <img
+              src={require('../images/airCanada.jpeg')}
+              className='ad-image'
+              alt='ad 1'
+            />
+          </a>
+          <a href='tuliptranslations.ca'>
+            <img
+              src={require('../images/tercuman.png')}
+              className='ad-image'
+              alt='ad 2'
+            />
+          </a>
+
+          <a href='tuliptranslations.ca'>
+            <img
+              src={require('../images/istikbal.jpeg')}
+              className='ad-image'
+              alt='ad 3'
+            />
+          </a>
+
           <div className='ad1'></div>
           <div className='ad2'></div>
           <div className='ad3'></div>
         </section>
       </div>
+      <div id='contact-me'>
+        <div className='contact'>
+          Reklam, soru ve önerileriniz için:{' '}
+          <a href='mailto:info@vatandaslik.ca'>info@vatandaslik.ca</a> {' - '}
+          <a href='tel:4166889555' className='phoneNumber'>
+            (416) 688-9555
+          </a>
+        </div>
+        {isCalculated && (
+          <div className='contact'>
+            Disclaimer: The information contained in this website is provided
+            for informational purposes only, and should not be construed as
+            legal advice on any matter. We do not make any warranties about the
+            completeness, reliability and accuracy of this information. By using
+            our website, you hereby consent to our disclaimer and agree to its
+            terms.
+          </div>
+        )}
+      </div>
+      <div id='footer'></div>
     </MuiPickersUtilsProvider>
   );
 }
