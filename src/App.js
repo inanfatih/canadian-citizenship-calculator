@@ -4,9 +4,10 @@ import './style/main.css';
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
-// import * as firebase from 'firebase/app';
-// import 'firebase/analytics';
+import * as firebase from 'firebase/app';
+import 'firebase/analytics';
 import ReactGA from 'react-ga';
+import firebaseConfig from './firebase/firebase';
 
 import {
   Switch,
@@ -17,8 +18,14 @@ import {
 
 function App() {
   useEffect(() => {
+    firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics;
+    analytics().setCurrentScreen(window.location.pathname);
+    analytics().logEvent('screen_view');
+
     ReactGA.initialize('UA-64262005-2');
     ReactGA.pageview('/');
+    //eslint-disable-next-line
   }, []);
 
   return (

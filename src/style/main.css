@@ -536,7 +536,8 @@ a:active {
         font-size: 2rem;
         padding-bottom: 5px;
         color: white;
-        text-align: center; }
+        text-align: center;
+        border-bottom: 2px solid #af1038; }
     #home .ad-container .ad-box {
       display: flex;
       flex-direction: row;
@@ -550,7 +551,7 @@ a:active {
       flex-grow: 1;
       margin: 15px 5px; }
   #home .ad-container-2 {
-    background: #af1038;
+    background: #222649;
     border-radius: 5px;
     margin: 0 10px;
     padding: 10px 10px 0;
@@ -559,7 +560,7 @@ a:active {
     #home .ad-container-2 .ad-image {
       width: 100%;
       border-radius: 5px;
-      margin-bottom: 10px; }
+      margin-bottom: 5px; }
   #home .box {
     border: 2px #767676 solid;
     border-radius: 5px;

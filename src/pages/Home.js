@@ -311,10 +311,10 @@ function Home() {
                   : null}
               </div>
               <div className='result-text'>Geçen gün:</div>
-              <div className='result-text'>{passedDays}</div>
+              <div className='result-text'>{Math.floor(passedDays)}</div>
               <div className='result-text'>Kalan gün:</div>
               <div className='result-text'>
-                {1095 - (passedDays > 1095 ? 1095 : passedDays)}
+                {1095 - (passedDays > 1095 ? 1095 : Math.floor(passedDays))}
               </div>
               <div className='result-text'>Hak etme tarihi:</div>
               <div className='result-text'>{citizenshipDate}</div>
@@ -620,22 +620,16 @@ function Home() {
                   Hesapla
                 </Button>
               </Box>
-
-              {/* <div>Geçen Gün Sayısı: {passedDays}</div>
-                <div>
-                  Kalan Gün Sayısı: {1095 - (passedDays > 1095 ? 1095 : passedDays)}
-                </div>
-                <div>Vatandaşlık hakediş tarihi: {citizenshipDate}</div> */}
             </form>
           </div>
         )}
         <section className='ad-container-2'>
           <a
-            href='http://tuliptranslations.ca/'
+            href='https://nosmarket.ca/'
             target='_blank'
             rel='noopener noreferrer'>
             <img
-              src={require('../images/airCanada.jpeg')}
+              src={require('../images/nosmarket.jpeg')}
               className='ad-image'
               alt='ad 1'
             />
@@ -652,11 +646,11 @@ function Home() {
           </a>
 
           <a
-            href='http://tuliptranslations.ca/'
+            href='https://alaskamedia.ca/'
             target='_blank'
             rel='noopener noreferrer'>
             <img
-              src={require('../images/istikbal.jpeg')}
+              src={require('../images/alaska.jpeg')}
               className='ad-image'
               alt='ad 3'
             />
